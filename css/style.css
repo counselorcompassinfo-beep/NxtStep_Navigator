@@ -103,3 +103,7 @@ h1,h2,h3,h4{font-family:Montserrat,sans-serif;color:var(--navy);line-height:1.15
 @media (max-width:560px){.container{padding:0 18px}.brand strong{font-size:15px}.brand span{font-size:8.5px}.hero h1{font-size:39px}.section{padding:46px 0}.section-title h2{font-size:28px}.main-grid,.audience-grid{grid-template-columns:1fr}.icon-card{min-height:auto}.footer-brand{align-items:flex-start}.toast{left:16px;right:16px;bottom:16px}}
 
 @media (max-width:560px){.hero-mini{grid-template-columns:50px 1fr;gap:12px;padding:16px}.hero-mini .mini-logo{width:50px;height:50px}.hero-mini strong{font-size:20px}.hero-mini p{font-size:13.5px;line-height:1.5}}
+/* Remove the white Start with the right section box */
+.hero-mini{
+  display:none !important;
+}
