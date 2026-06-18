@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counselor Compass — NXT Step Navigator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+/* Counselor Compass page-specific styling */
+.page-hero{
+  position:relative;
+  background:
+    radial-gradient(circle at 84% 22%, rgba(21,101,192,.16), transparent 30%),
+    linear-gradient(120deg, #FFFFFF 0%, #FFFFFF 48%, #EEF4FC 100%);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.page-hero:before{
+  content:"";
+  position:absolute;
+  right:-145px;
+  top:20px;
+  width:430px;
+  height:430px;
+  background:url('../assets/logos/nxt-step-navigator-badge.png') center/contain no-repeat;
+  opacity:.045;
+  filter:grayscale(.1);
+}
+.page-hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:36px;
+  align-items:center;
+  min-height:430px;
+  padding:58px 0;
+}
+.page-hero h1{
+  font-size:clamp(40px,5.3vw,62px);
+  letter-spacing:-.04em;
+  margin:0 0 12px;
+  font-weight:800;
+}
+.page-hero .sub{
+  font-family:Montserrat,sans-serif;
+  color:var(--blue);
+  font-weight:800;
+  font-size:19px;
+  margin:0 0 14px;
+}
+.page-hero p{
+  color:#334155;
+  max-width:650px;
+  margin:0 0 22px;
+}
+.page-visual{
+  position:relative;
+  min-height:290px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.compass-panel{
+  position:relative;
+  width:min(430px,100%);
+  min-height:285px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:26px;
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.compass-panel:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg, rgba(10,30,61,.06), rgba(21,101,192,.05)),
+    radial-gradient(circle at 72% 20%, rgba(21,101,192,.14), transparent 34%);
+}
+.compass-panel img{
+  position:relative;
+  z-index:1;
+  width:220px;
+  opacity:.96;
+}
+.compass-swoosh{
+  position:absolute;
+  left:-60px;
+  bottom:30px;
+  width:360px;
+  height:100px;
+  border-bottom:18px solid rgba(21,101,192,.18);
+  border-radius:0 0 100% 100%;
+  transform:rotate(-12deg);
+}
+.section-nav{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+}
+.section-nav-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  padding:24px 0;
+}
+.section-nav-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  padding:16px;
+  transition:.18s;
+}
+.section-nav-card:hover{
+  transform:translateY(-2px);
+  border-color:#C8D8ED;
+  box-shadow:0 12px 30px rgba(10,30,61,.10);
+}
+.section-nav-card strong{
+  display:block;
+  font-family:Montserrat,sans-serif;
+  color:var(--navy);
+  font-size:15px;
+  margin-bottom:3px;
+}
+.section-nav-card span{
+  display:block;
+  color:var(--gray);
+  font-size:12.5px;
+  line-height:1.45;
+}
+.page-card-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
+.page-card{
+  position:relative;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  padding:22px 18px;
+  min-height:245px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  transition:.18s;
+}
+.page-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 42px rgba(10,30,61,.12);
+  border-color:#C8D8ED;
+}
+.page-card:before{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  top:0;
+  height:4px;
+  background:var(--blue);
+  border-radius:0 0 6px 6px;
+  opacity:0;
+  transition:.18s;
+}
+.page-card:hover:before{opacity:1}
+.page-card .icon-badge{
+  width:58px;
+  height:58px;
+  margin-bottom:14px;
+}
+.page-card h3{
+  font-size:17px;
+  margin:0 0 8px;
+}
+.page-card p{
+  color:var(--gray);
+  font-size:13px;
+  line-height:1.52;
+  margin:0 0 14px;
+}
+.page-card .card-link{
+  margin-top:auto;
+}
+.notice-panel{
+  background:#EEF4FC;
+  border:1px solid #CFE0F6;
+  border-radius:18px;
+  padding:22px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:16px;
+  align-items:center;
+  box-shadow:var(--shadow);
+}
+.notice-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid #CFE0F6;
+  background:#fff;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  font-size:20px;
+}
+.notice-panel h3{
+  margin:0 0 4px;
+  font-size:18px;
+}
+.notice-panel p{
+  margin:0;
+  color:#475569;
+  font-size:14px;
+}
+.resource-preview{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:26px;
+  box-shadow:var(--shadow);
+}
+.resource-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.resource-list li{
+  border:1px solid var(--border);
+  background:var(--light);
+  border-radius:12px;
+  padding:14px;
+  font-size:13.5px;
+  color:#334155;
+}
+.resource-list strong{
+  display:block;
+  color:var(--navy);
+  font-family:Montserrat,sans-serif;
+  margin-bottom:2px;
+}
+@media (max-width:1040px){
+  .page-card-grid{grid-template-columns:repeat(3,1fr)}
+  .section-nav-grid{grid-template-columns:repeat(2,1fr)}
+  .resource-list{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:820px){
+  .page-hero-grid{grid-template-columns:1fr;min-height:auto;padding:44px 0}
+  .page-visual{min-height:230px}
+  .compass-panel{min-height:230px}
+  .compass-panel img{width:170px}
+  .page-card-grid{grid-template-columns:repeat(2,1fr)}
+  .notice-panel{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .page-card-grid,.section-nav-grid,.resource-list{grid-template-columns:1fr}
+  .page-card{min-height:auto}
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="nav" id="siteNav">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html" aria-label="NXT Step Navigator Home">
+      <img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator compass logo">
+      <div>
+        <strong>NXT Step<br>Navigator</strong>
+        <span>Educate • Equip • Empower</span>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+
+    <div class="nav-links" aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a class="active" href="../counselor-compass/">Counselor Compass</a>
+      <a href="../whs-counselor-compass/">WHS Counselor Compass</a>
+      <a href="../nextstep-how-to/">NextStep How-To</a>
+      <a href="../nextstep-tours/">NextStep Tours</a>
+      <a href="../resource-library/">Resource Library</a>
+      <a href="../about.html">About</a>
+      <a class="nav-cta" href="../contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container page-hero-grid">
+    <div>
+      <p class="eyebrow">General Guidance Hub</p>
+      <h1>Counselor Compass</h1>
+      <p class="sub">A NXT Step Navigator resource for school counseling basics.</p>
+      <p>
+        Explore general academic, college, career, testing, and planning guidance designed to help students and families know where to begin, what questions to ask, and what next step to take.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="#start">Start Here →</a>
+        <a class="btn secondary" href="#resources">Explore Resources</a>
+      </div>
+    </div>
+
+    <div class="page-visual" aria-hidden="true">
+      <div class="compass-panel">
+        <span class="compass-swoosh"></span>
+        <img src="../assets/logos/nxt-step-navigator-badge.png" alt="">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section-nav" aria-label="Quick links">
+  <div class="container section-nav-grid">
+    <a class="section-nav-card" href="#start">
+      <strong>Where do I start?</strong>
+      <span>Begin with the main guidance cards.</span>
+    </a>
+    <a class="section-nav-card" href="#difference">
+      <strong>General vs. WHS</strong>
+      <span>Know which section fits your need.</span>
+    </a>
+    <a class="section-nav-card" href="#resources">
+      <strong>Future documents</strong>
+      <span>PDFs and checklists will be linked here.</span>
+    </a>
+    <a class="section-nav-card" href="../whs-counselor-compass/">
+      <strong>Need WHS details?</strong>
+      <span>Use WHS Counselor Compass for local info.</span>
+    </a>
+  </div>
+</section>
+
+<main id="main-content">
+  <section class="section white" id="start">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Where Would You Like to Start?</p>
+        <h2>Choose a counseling topic.</h2>
+        <p>These pages are for general guidance. They do not include WHS staff names, WHS dates, WHS procedures, or school-specific requirements.</p>
+      </div>
+
+      <div class="page-card-grid">
+        <a class="page-card future-link" href="start-here.html" data-page="Counselor Compass Start Here">
+          <span class="icon-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.6 6.4L21 11l-6.4 2.6L12 20l-2.6-6.4L3 11l6.4-2.6L12 2z"/><path d="M12 8v4l3 2"/></svg>
+          </span>
+          <h3>Start Here</h3>
+          <p>New to the process? Begin with a simple overview of how to use this section.</p>
+          <span class="card-link">Open Guide <span>→</span></span>
+          <span class="future-pill">Page coming next</span>
+        </a>
+
+        <a class="page-card future-link" href="getting-the-right-help.html" data-page="Getting the Right Help">
+          <span class="icon-badge alt">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+          </span>
+          <h3>Getting the Right Help</h3>
+          <p>Learn when to contact a counselor, teacher, registrar, testing office, or administrator.</p>
+          <span class="card-link">Find Support <span>→</span></span>
+          <span class="future-pill">Page coming next</span>
+        </a>
+
+        <a class="page-card future-link" href="course-planning-basics.html" data-page="Course Planning Basics">
+          <span class="icon-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l1 3h3v15H4V6h3l1-3z"/><path d="M8 11h8M8 15h6M9 6h6"/></svg>
+          </span>
+          <h3>Course Planning Basics</h3>
+          <p>Understand credits, rigor, electives, graduation planning, and building a smart schedule.</p>
+          <span class="card-link">Plan Courses <span>→</span></span>
+          <span class="future-pill">Page coming next</span>
+        </a>
+
+        <a class="page-card future-link" href="graduation-basics.html" data-page="Graduation Basics">
+          <span class="icon-badge green">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 12v4c2.6 2 7.4 2 10 0v-4"/><path d="M21 9v6"/></svg>
+          </span>
+          <h3>Graduation Basics</h3>
+          <p>Review common graduation categories such as credits, GPA, testing, and readiness.</p>
+          <span class="card-link">Review Basics <span>→</span></span>
+          <span class="future-pill">Page coming next</span>
+        </a>
+
+        <a class="page-card future-link" href="testing-basics.html" data-page="Testing Basics">
+          <span class="icon-badge gold">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7V3z"/><path d="M14 3v5h5"/><path d="M9 12h6M9 16h6"/></svg>
+          </span>
+          <h3>Testing Basics</h3>
+          <p>Get a plain-language overview of SAT, ACT, CLT, EOC, AP, AICE, and state testing.</p>
+          <span class="card-link">Explore Testing <span>→</span></span>
+          <span class="future-pill">Page coming next</span>
+        </a>
+
+        <a class="page-card future-link" href="college-career-basics.html" data-page="College and Career Basics">
+          <span class="icon-badge purple">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M6 20V9l6-4 6 4v11"/><path d="M9 20v-7h6v7"/></svg>
+          </span>
+          <h3>College & Career Basics</h3>
+          <p>Explore pathways after high school, applications, resumes, scholarships, and career options.</p>
+          <span class="card-link">Explore Options <span>→</span></span>
+          <span class="future-pill">Page coming next</span>
+        </a>
+
+        <a class="page-card future-link" href="dual-enrollment-basics.html" data-page="Dual Enrollment Basics">
+          <span class="icon-badge alt">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h9a4 4 0 0 1 4 4v10H9a4 4 0 0 0-4 4V5z"/><path d="M9 9h5M9 13h6"/></svg>
+          </span>
+          <h3>Dual Enrollment Basics</h3>
+          <p>Learn what dual enrollment is, what to consider, and what questions families should ask.</p>
+          <span class="card-link">Learn More <span>→</span></span>
+          <span class="future-pill">Page coming next</span>
+        </a>
+
+        <a class="page-card future-link" href="parent-guide.html" data-page="Parent Guide">
+          <span class="icon-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M3 21a6 6 0 0 1 12 0"/><path d="M14 21a5 5 0 0 1 7 0"/></svg>
+          </span>
+          <h3>Parent Guide</h3>
+          <p>Helpful reminders for supporting students, communicating clearly, and preparing questions.</p>
+          <span class="card-link">View Guide <span>→</span></span>
+          <span class="future-pill">Page coming next</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="difference">
+    <div class="container">
+      <div class="start-panel">
+        <div class="choice-card">
+          <h3>Use Counselor Compass for general guidance.</h3>
+          <p>Choose this section when the topic could help students or families at any school.</p>
+          <ul class="choice-list">
+            <li><span class="check">✓</span><span>General course planning reminders</span></li>
+            <li><span class="check">✓</span><span>Questions to ask a counselor or teacher</span></li>
+            <li><span class="check">✓</span><span>College, career, testing, and graduation basics</span></li>
+            <li><span class="check">✓</span><span>Parent support tips and planning checklists</span></li>
+          </ul>
+        </div>
+
+        <div class="choice-card">
+          <h3>Use WHS Counselor Compass for Wellington-specific information.</h3>
+          <p>Choose the WHS section when the topic depends on local staff, dates, forms, links, or procedures.</p>
+          <ul class="choice-list">
+            <li><span class="check">✓</span><span>WHS counselor assignments and support centers</span></li>
+            <li><span class="check">✓</span><span>WHS course selection and local deadline reminders</span></li>
+            <li><span class="check">✓</span><span>WHS forms, official links, and school-specific processes</span></li>
+            <li><span class="check">✓</span><span>WHS testing, graduation, and college/career reminders</span></li>
+          </ul>
+          <div class="coming-box">
+            <strong>Need local information?</strong><br>
+            Go to <a href="../whs-counselor-compass/" style="color:var(--blue);font-weight:800;">WHS Counselor Compass →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section white" id="resources">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Documents Coming Later</p>
+        <h2>Future Counselor Compass resources</h2>
+        <p>As you upload PDFs, blank forms, checklists, and templates, they can be linked from this page and stored in the matching document folder.</p>
+      </div>
+
+      <div class="resource-preview">
+        <ul class="resource-list">
+          <li><strong>Start Here Guide</strong> documents/counselor-compass/start-here-student-family-guide.pdf</li>
+          <li><strong>Meeting Checklist</strong> documents/counselor-compass/student-counselor-meeting-checklist.pdf</li>
+          <li><strong>Parent Checklist</strong> documents/counselor-compass/parent-counselor-meeting-checklist.pdf</li>
+          <li><strong>Course Planning Worksheet</strong> documents/counselor-compass/course-planning-worksheet.pdf</li>
+          <li><strong>Graduation Checklist</strong> documents/counselor-compass/graduation-progress-checklist.pdf</li>
+          <li><strong>College Application Tracker</strong> documents/counselor-compass/college-application-tracker.pdf</li>
+        </ul>
+      </div>
+
+      <div style="height:22px"></div>
+
+      <div class="notice-panel">
+        <div class="notice-icon">i</div>
+        <div>
+          <h3>We are here to help you navigate with confidence.</h3>
+          <p>Use these resources as general planning support. Always verify school-specific requirements, deadlines, and procedures with the official school or district source.</p>
+        </div>
+        <a class="btn" href="../resource-library/">Visit Resource Library →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="disclaimer">
+  <div class="container">
+    <div class="info-dot">i</div>
+    <div>
+      NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator logo">
+          <div>
+            <strong>NXT Step<br>Navigator</strong>
+            <span>Educate • Equip • Empower</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="../counselor-compass/">Counselor Compass</a>
+        <a href="../whs-counselor-compass/">WHS Counselor Compass</a>
+        <a href="../nextstep-how-to/">NextStep How-To</a>
+        <a href="../nextstep-tours/">NextStep Tours</a>
+        <a href="../resource-library/">Resource Library</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../disclaimer.html">Disclaimer</a>
+        <a href="../privacy.html">Privacy Policy</a>
+      </div>
+
+      <div class="footer-note">
+        <p><strong style="color:#fff;font-family:Montserrat,sans-serif;">Independent Resource Notice</strong><br>
+        NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District.</p>
+      </div>
+    </div>
+
+    <div class="copyright">© 2026 NXT Step Navigator. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="toast" id="futureToast" role="status" aria-live="polite">
+  <strong>Page coming next</strong>
+  <span>This section is planned and will be created in a future update.</span>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+/* Keeps future cards from opening unfinished pages if main.js is not active */
+document.querySelectorAll('.future-link').forEach(function(link){
+  link.addEventListener('click', function(event){
+    event.preventDefault();
+    var toast = document.getElementById('futureToast');
+    if(toast){
+      var label = link.getAttribute('data-page') || 'This page';
+      toast.querySelector('strong').textContent = label + ' is coming next';
+      toast.classList.add('show');
+      setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+    }
+  });
+});
+</script>
+</body>
+</html>
