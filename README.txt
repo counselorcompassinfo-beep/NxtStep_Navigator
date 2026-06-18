@@ -1,0 +1,1 @@
+Upload the contents of this zip to your GitHub repository root. Includes WHS Counselor Compass landing page, web support center/counselor page, separate Who to Turn To page, and the WHS school counseling hands logo asset. Keep existing css/style.css, js/main.js, and NXT Step logo files.
