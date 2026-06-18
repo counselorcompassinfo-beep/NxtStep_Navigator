@@ -1,5 +1,262 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Who to Turn To at WHS — NXT Step Navigator</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who to Turn To at WHS — NXT Step Navigator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+
 <style>
-.whs-hero{position:relative;background:radial-gradient(circle at 84% 18%,rgba(21,101,192,.18),transparent 32%),linear-gradient(120deg,#fff 0%,#fff 48%,#EEF4FC 100%);border-bottom:1px solid var(--border);overflow:hidden}.whs-hero:before{content:"";position:absolute;right:-145px;top:20px;width:430px;height:430px;background:url('../assets/logos/nxt-step-navigator-badge.png') center/contain no-repeat;opacity:.04}.whs-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;min-height:430px;padding:58px 0}.whs-hero h1{font-size:clamp(38px,5.1vw,60px);letter-spacing:-.04em;margin:0 0 12px;font-weight:800}.whs-hero .sub{font-family:Montserrat,sans-serif;color:var(--blue);font-weight:800;font-size:19px;margin:0 0 14px}.whs-hero p{color:#334155;max-width:670px;margin:0 0 22px}.whs-visual{position:relative;min-height:300px;display:flex;align-items:center;justify-content:center}.whs-counseling-logo{width:min(365px,88%);display:block;margin:0 auto;filter:drop-shadow(0 18px 34px rgba(10,30,61,.16))}.whs-card-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}.whs-card{position:relative;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:22px 18px;min-height:232px;display:flex;flex-direction:column;align-items:center;text-align:center;transition:.18s}.whs-card:hover{transform:translateY(-4px);box-shadow:0 16px 42px rgba(10,30,61,.12);border-color:#C8D8ED}.whs-card:before{content:"";position:absolute;left:18px;right:18px;top:0;height:4px;background:var(--blue);border-radius:0 0 6px 6px;opacity:0;transition:.18s}.whs-card:hover:before{opacity:1}.whs-card .icon-badge{width:58px;height:58px;margin-bottom:14px}.whs-card h3{font-size:16.5px;margin:0 0 8px}.whs-card p{color:var(--gray);font-size:13px;line-height:1.52;margin:0 0 14px}.whs-card .card-link{margin-top:auto}.whs-warning{background:#FFF7ED;border:1px solid #FED7AA;border-radius:18px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;margin-top:22px;color:#7C2D12}.whs-warning strong{font-family:Montserrat,sans-serif;color:#7C2D12}.whs-warning p{margin:0;font-size:13.5px;line-height:1.55}.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.center-section{background:#fff;border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:24px;box-shadow:var(--shadow)}.center-header{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:18px}.center-header h2{font-size:30px;margin:0 0 6px}.center-header p{margin:0;color:var(--gray);font-weight:700}.admin-assistant{background:var(--light);border:1px solid var(--border);border-radius:12px;padding:14px;min-width:250px}.admin-assistant span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--gray);font-weight:800}.admin-assistant strong{display:block;font-family:Montserrat,sans-serif;color:var(--navy);margin:3px 0}.admin-assistant a{display:block;color:var(--blue);font-size:13px;word-break:break-word}.center-desc{color:var(--gray);margin:0 0 20px}.staff-card{display:flex;gap:14px;border:1px solid var(--border);border-radius:14px;background:#fff;padding:18px;box-shadow:0 1px 5px rgba(0,0,0,.04)}.avatar{width:54px;height:54px;border-radius:50%;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-weight:800;flex:0 0 54px}.badge{display:inline-block;background:#E3F2FD;color:var(--blue);font-size:12px;font-family:Montserrat,sans-serif;font-weight:800;border-radius:999px;padding:3px 10px;margin-bottom:8px}.staff-info h3{font-size:18px;margin:0 0 3px}.staff-info p{margin:0 0 7px;color:var(--gray);font-weight:600}.email{color:var(--blue);font-size:14px;word-break:break-word}.card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn.small{font-size:12px;padding:8px 12px;border-radius:7px}.btn.ghost{background:#fff;color:var(--blue);box-shadow:none}.support-team{background:var(--light);border-radius:12px;padding:18px;margin-top:18px}.support-team h3{margin:0 0 12px;font-size:18px}.support-team ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.support-team li{background:white;border:1px solid var(--border);border-radius:10px;padding:12px}.support-team strong{display:block;color:var(--navy)}.support-team span{display:block;color:var(--gray);font-size:13px}.support-team a{display:block;color:var(--blue);font-size:13px;word-break:break-word}.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.quick-card{border:1px solid var(--border);border-radius:12px;padding:18px;background:#fff;box-shadow:var(--shadow)}.quick-card strong{font-family:Montserrat,sans-serif;color:var(--navy);display:block}.quick-card span{font-size:13px;color:var(--gray)}.people-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.person-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:flex-start}.person-card h3{font-size:16px;margin:0 0 4px}.person-card p{margin:0 0 6px;color:#334155;font-weight:700;font-size:13.5px}.person-card a{color:var(--blue);font-size:13px;word-break:break-word}.role-dot{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-weight:800;flex:0 0 auto}.group-heading{margin:34px 0 14px;border-left:5px solid var(--blue);padding-left:12px}.group-heading h2{margin:0;font-size:24px}.group-heading p{margin:3px 0 0;color:var(--gray)}@media(max-width:1040px){.whs-card-grid{grid-template-columns:repeat(3,1fr)}.people-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:820px){.whs-hero-grid{grid-template-columns:1fr;min-height:auto;padding:44px 0}.whs-visual{min-height:230px}.whs-counseling-logo{width:min(300px,86%)}.whs-card-grid,.contact-grid,.quick-grid{grid-template-columns:repeat(2,1fr)}.center-header{flex-direction:column}.support-team ul{grid-template-columns:1fr}}@media(max-width:560px){.whs-card-grid,.contact-grid,.quick-grid,.people-grid{grid-template-columns:1fr}.whs-card{min-height:auto}.staff-card{flex-direction:column}}
+.whs-hero{
+  position:relative;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(21,101,192,.18), transparent 32%),
+    linear-gradient(120deg, #FFFFFF 0%, #FFFFFF 48%, #EEF4FC 100%);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.whs-hero:before{
+  content:"";
+  position:absolute;
+  right:-145px;
+  top:20px;
+  width:430px;
+  height:430px;
+  background:url('../assets/logos/nxt-step-navigator-badge.png') center/contain no-repeat;
+  opacity:.04;
+  filter:grayscale(.1);
+}
+.whs-hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:36px;
+  align-items:center;
+  min-height:430px;
+  padding:58px 0;
+}
+.whs-hero h1{
+  font-size:clamp(38px,5.1vw,60px);
+  letter-spacing:-.04em;
+  margin:0 0 12px;
+  font-weight:800;
+}
+.whs-hero .sub{
+  font-family:Montserrat,sans-serif;
+  color:var(--blue);
+  font-weight:800;
+  font-size:19px;
+  margin:0 0 14px;
+}
+.whs-hero p{color:#334155;max-width:670px;margin:0 0 22px}
+.whs-visual{position:relative;min-height:300px;display:flex;align-items:center;justify-content:center}
+.whs-counseling-logo,
+.whs-campus-logo{
+  display:block;
+  margin:0 auto;
+  filter:drop-shadow(0 18px 34px rgba(10,30,61,.16));
+}
+.whs-counseling-logo{width:min(365px,88%)}
+.whs-campus-logo{width:min(250px,76%); opacity:.96}
+.whs-card-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.whs-card{
+  position:relative;background:#fff;border:1px solid var(--border);border-radius:16px;
+  box-shadow:var(--shadow);padding:22px 18px;min-height:232px;display:flex;flex-direction:column;
+  align-items:center;text-align:center;transition:.18s;
+}
+.whs-card:hover{transform:translateY(-4px);box-shadow:0 16px 42px rgba(10,30,61,.12);border-color:#C8D8ED}
+.whs-card:before{content:"";position:absolute;left:18px;right:18px;top:0;height:4px;background:var(--blue);border-radius:0 0 6px 6px;opacity:0;transition:.18s}
+.whs-card:hover:before{opacity:1}
+.whs-card .icon-badge{width:58px;height:58px;margin-bottom:14px}
+.whs-card h3{font-size:16.5px;margin:0 0 8px}
+.whs-card p{color:var(--gray);font-size:13px;line-height:1.52;margin:0 0 14px}
+.whs-card .card-link{margin-top:auto}
+.whs-warning{
+  background:#FFF7ED;border:1px solid #FED7AA;border-radius:18px;padding:18px 20px;
+  display:flex;gap:14px;align-items:flex-start;margin-top:22px;color:#7C2D12;
+}
+.whs-warning strong{font-family:Montserrat,sans-serif;color:#7C2D12}
+.whs-warning p{margin:0;font-size:13.5px;line-height:1.55}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.center-section{background:#fff;border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:24px;box-shadow:var(--shadow)}
+.center-header{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:18px}
+.center-header h2{font-size:30px;margin:0 0 6px}
+.center-header p{margin:0;color:var(--gray);font-weight:700}
+.admin-assistant{background:var(--light);border:1px solid var(--border);border-radius:12px;padding:14px;min-width:270px}
+.admin-assistant span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--gray);font-weight:800}
+.admin-assistant strong{display:block;font-family:Montserrat,sans-serif;color:var(--navy);margin:3px 0}
+.admin-assistant a{display:block;color:var(--blue);font-size:13px;word-break:break-word}
+.center-desc{color:var(--gray);margin:0 0 20px}
+.staff-card{
+  display:flex;gap:18px;border:1px solid var(--border);border-radius:16px;background:#fff;
+  padding:20px 20px 22px;box-shadow:0 1px 5px rgba(0,0,0,.04);align-items:flex-start;
+}
+.avatar{
+  width:78px;height:78px;border-radius:50%;background:var(--navy);color:white;
+  display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;
+  font-weight:800;font-size:30px;flex:0 0 78px;margin-top:56px;
+}
+.staff-info{flex:1;min-width:0}
+.alpha-range{
+  display:inline-block;
+  background:#DDE9F7;
+  color:#2B66C4;
+  font-size:20px;
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  border-radius:999px;
+  padding:10px 22px;
+  margin-bottom:14px;
+  line-height:1;
+}
+.staff-info h3{
+  font-size:29px;
+  line-height:1.08;
+  margin:0 0 10px;
+}
+.staff-info p{
+  margin:0 0 8px;
+  color:var(--gray);
+  font-weight:600;
+  font-size:19px;
+  line-height:1.15;
+}
+.email{color:var(--blue);font-size:15px;word-break:break-word}
+.card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.btn.small{font-size:12px;padding:8px 12px;border-radius:7px}
+.btn.ghost{background:#fff;color:var(--blue);box-shadow:none}
+.support-team{background:var(--light);border-radius:12px;padding:18px;margin-top:18px}
+.support-team h3{margin:0 0 12px;font-size:18px}.support-team ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.support-team li{background:white;border:1px solid var(--border);border-radius:10px;padding:12px}.support-team strong{display:block;color:var(--navy)}
+.support-team span{display:block;color:var(--gray);font-size:13px}.support-team a{display:block;color:var(--blue);font-size:13px;word-break:break-word}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.quick-card{border:1px solid var(--border);border-radius:12px;padding:18px;background:#fff;box-shadow:var(--shadow)}
+.quick-card strong{font-family:Montserrat,sans-serif;color:var(--navy);display:block}.quick-card span{font-size:13px;color:var(--gray)}
+.people-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.person-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:flex-start}
+.person-card h3{font-size:16px;margin:0 0 4px}.person-card p{margin:0 0 6px;color:#334155;font-weight:700;font-size:13.5px}.person-card a{color:var(--blue);font-size:13px;word-break:break-word}
+.role-dot{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-weight:800;flex:0 0 auto}
+.group-heading{margin:34px 0 14px;border-left:5px solid var(--blue);padding-left:12px}
+.group-heading h2{margin:0;font-size:24px}.group-heading p{margin:3px 0 0;color:var(--gray)}
+@media (max-width:1040px){
+  .whs-card-grid{grid-template-columns:repeat(3,1fr)}
+  .people-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:820px){
+  .whs-hero-grid{grid-template-columns:1fr;min-height:auto;padding:44px 0}
+  .whs-visual{min-height:230px}
+  .whs-counseling-logo{width:min(300px,86%)}
+  .whs-campus-logo{width:min(220px,70%)}
+  .whs-card-grid,.contact-grid,.quick-grid{grid-template-columns:repeat(2,1fr)}
+  .center-header{flex-direction:column}
+  .support-team ul{grid-template-columns:1fr}
+  .staff-card{padding:18px}
+  .avatar{width:70px;height:70px;flex-basis:70px;font-size:27px;margin-top:50px}
+  .alpha-range{font-size:18px;padding:9px 18px}
+  .staff-info h3{font-size:25px}
+  .staff-info p{font-size:17px}
+}
+@media (max-width:560px){
+  .whs-card-grid,.contact-grid,.quick-grid,.people-grid{grid-template-columns:1fr}
+  .whs-card{min-height:auto}
+  .staff-card{flex-direction:column;gap:14px}
+  .avatar{margin-top:0}
+}
 </style>
-</head><body><a class="skip-link" href="#main-content">Skip to main content</a><nav class="nav" id="siteNav"><div class="container nav-inner"><a class="brand" href="../index.html"><img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator compass logo"><div><strong>NXT Step<br>Navigator</strong><span>Educate • Equip • Empower</span></div></a><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button><div class="nav-links"><a href="../index.html">Home</a><a href="../counselor-compass/">Counselor Compass</a><a class="active" href="../whs-counselor-compass/">WHS Counselor Compass</a><a href="../nextstep-how-to/">NextStep How-To</a><a href="../nextstep-tours/">NextStep Tours</a><a href="../resource-library/">Resource Library</a><a href="../about.html">About</a><a class="nav-cta" href="../contact.html">Contact</a></div></div></nav><header class="whs-hero"><div class="container whs-hero-grid"><div><p class="eyebrow">WHS Counselor Compass</p><h1>Who to Turn To at WHS</h1><p class="sub">Important campus contacts for common questions and support needs.</p><p>This page is separate from the Student Support Centers page. Use it when you need a campus coordinator, records/transcripts, testing, ESOL, ESE/SBT, athletics, activities, wellness, safety, media center, or other school-service contact.</p><div class="btn-row"><a class="btn" href="#people">Find a Contact →</a><a class="btn secondary" href="whs-counselor-assignments.html">Need Your Counselor?</a></div></div><div class="whs-visual" aria-hidden="true"><img class="whs-counseling-logo" src="../assets/logos/whs-school-counseling-hands.png" alt=""></div></div></header><main id="main-content"><section class="section white" id="people"><div class="container"><div class="section-title"><p class="eyebrow">Need Information?</p><h2>WHS campus personnel directory</h2><p>These contacts were organized from the “Who to Turn To at WHS” document. Confirm time-sensitive or official details with the school.</p></div><div class="group-heading"><h2>Academics & Programs</h2><p>Campus personnel outside of the main support-center counselor assignments.</p></div><div class="people-grid"><article class="person-card"><div class="role-dot">VD</div><div><h3>Academy Coordinator</h3><p>Ms. Vanessa Douglass</p><a href="mailto:Vanessa.Douglass@palmbeachschools.org">Vanessa.Douglass@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">MD</div><div><h3>AICE Coordinator</h3><p>Ms. Mierka Drucker</p><a href="mailto:Mierka.Drucker@palmbeachschools.org">Mierka.Drucker@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">LT</div><div><h3>AP Coordinator</h3><p>Mr. Lee Tanton</p><a href="mailto:Lee.Tanton@palmbeachschools.org">Lee.Tanton@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">CG</div><div><h3>ESOL Counselor</h3><p>Ms. Claudia Gallardo</p><a href="mailto:Claudia.Gallardo@palmbeachschools.org">Claudia.Gallardo@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">CC</div><div><h3>ESOL Coordinator</h3><p>Mr. Christian Carrera</p><a href="mailto:Christian.Carrera@palmbeachschools.org">Christian.Carrera@palmbeachschools.org</a></div></article></div><div class="group-heading"><h2>Student Services & Support</h2><p>Campus personnel outside of the main support-center counselor assignments.</p></div><div class="people-grid"><article class="person-card"><div class="role-dot">KP</div><div><h3>Assessment Coordinator</h3><p>Mrs. Kathleen Pereira</p><a href="mailto:Kathleen.Pereira@palmbeachschools.org">Kathleen.Pereira@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">ME</div><div><h3>ESE & SBT Coordinator</h3><p>Ms. Michelle Eichner</p><a href="mailto:Michelle.Eichner@palmbeachschools.org">Michelle.Eichner@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">DW</div><div><h3>ESE & SBT Coordinator</h3><p>Ms. Debra Wilson</p><a href="mailto:Debra.Wilson@palmbeachschools.org">Debra.Wilson@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">NS</div><div><h3>ESE Office Secretary</h3><p>Ms. Nancy Safford</p><a href="mailto:Nancy.Safford@palmbeachschools.org">Nancy.Safford@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">DF</div><div><h3>School Counseling Director</h3><p>Mrs. Danielle Fairclough</p><a href="mailto:Danielle.Fairclough@palmbeachschools.org">Danielle.Fairclough@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">LG</div><div><h3>Records & Transcripts</h3><p>Ms. Lori Gelobter</p><a href="mailto:Lori.Gelobter@palmbeachschools.org">Lori.Gelobter@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">TBA</div><div><h3>Psychologist</h3><p>TBA</p><span style="color:var(--gray);font-size:13px;">To be announced</span></div></article></div><div class="group-heading"><h2>Campus Life & Activities</h2><p>Campus personnel outside of the main support-center counselor assignments.</p></div><div class="people-grid"><article class="person-card"><div class="role-dot">GF</div><div><h3>Activities Director</h3><p>Ms. Gemma Ford</p><a href="mailto:Gemma.Ford@palmbeachschools.org">Gemma.Ford@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">RC</div><div><h3>Athletic Director</h3><p>Mr. Robert Callovi</p><a href="mailto:Robert.Callovi@palmbeachschools.org">Robert.Callovi@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">CC</div><div><h3>Assistant Athletic Director</h3><p>Mr. Christian Carrera</p><a href="mailto:Christian.Carrera@palmbeachschools.org">Christian.Carrera@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">MM</div><div><h3>Assistant Athletic Director</h3><p>Ms. Malissa McAuley</p><a href="mailto:Malissa.Mcauley@palmbeachschools.org">Malissa.Mcauley@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">BB</div><div><h3>Student Government</h3><p>Mr. Brockton Boretti</p><a href="mailto:Brockton.Boretti@palmbeachschools.org">Brockton.Boretti@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">GF</div><div><h3>Student Government</h3><p>Ms. Gemma Ford</p><a href="mailto:Gemma.Ford@palmbeachschools.org">Gemma.Ford@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">JA</div><div><h3>PTSA</h3><p>Ms. Jennifer Abreu</p><a href="mailto:Jenniferabreu311@gmail.com">Jenniferabreu311@gmail.com</a></div></article><article class="person-card"><div class="role-dot">CB</div><div><h3>SAC Chair</h3><p>Mrs. Crystal Barletta</p><a href="mailto:Crystal.Barletta@palmbeachschools.org">Crystal.Barletta@palmbeachschools.org</a></div></article></div><div class="group-heading"><h2>Operations & School Services</h2><p>Campus personnel outside of the main support-center counselor assignments.</p></div><div class="people-grid"><article class="person-card"><div class="role-dot">DB</div><div><h3>Bookkeeper</h3><p>Mrs. Dottie Billi</p><a href="mailto:Dottie.Billi@palmbeachschools.org">Dottie.Billi@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">SB</div><div><h3>Clinic / Nurse</h3><p>Mrs. Safina Bansee, RN</p><a href="mailto:Sbansee@hcdpc.org">Sbansee@hcdpc.org</a></div></article><article class="person-card"><div class="role-dot">MW</div><div><h3>Food Service Manager</h3><p>Ms. Monica Walker</p><a href="mailto:Monica.Walker@palmbeachschools.org">Monica.Walker@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">SC</div><div><h3>Media Specialist</h3><p>Dr. Sara Curry</p><a href="mailto:Sara.Curry@palmbeachschools.org">Sara.Curry@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">CA</div><div><h3>Media Clerk</h3><p>Mrs. Cindy Arkenbout</p><a href="mailto:Cindy.Arkenbout@palmbeachschools.org">Cindy.Arkenbout@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">EM</div><div><h3>Parking Services</h3><p>Dr. Eric Moore</p><a href="mailto:Eric.Moore@palmbeachschools.org">Eric.Moore@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">YT</div><div><h3>Parking Services</h3><p>Ms. Yvette Thomas</p><a href="mailto:Yvette.Thomas@palmbeachschools.org">Yvette.Thomas@palmbeachschools.org</a></div></article></div><div class="group-heading"><h2>Safety & Wellness</h2><p>Campus personnel outside of the main support-center counselor assignments.</p></div><div class="people-grid"><article class="person-card"><div class="role-dot">CH</div><div><h3>School Resource Officer</h3><p>Officer Charles Hennessey</p><a href="mailto:Charles.Hennessey@palmbeachschools.org">Charles.Hennessey@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">JV</div><div><h3>School Resource Officer</h3><p>Officer Juan Vital</p><a href="mailto:Juan.Vital@palmbeachschools.org">Juan.Vital@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">AJ</div><div><h3>Wolverine Wellness Center: Mental Health Coordinator 9–10</h3><p>Ms. Allyson Joseph</p><a href="mailto:Allyson.Joseph@palmbeachschools.org">Allyson.Joseph@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">CR</div><div><h3>Wolverine Wellness Center: D.A.T.A. Counselor & LMHC</h3><p>Ms. Christina Ranieri</p><a href="mailto:Christina.Ranieri@palmbeachschools.org">Christina.Ranieri@palmbeachschools.org</a></div></article></div><div class="whs-warning"><div class="notice-icon">i</div><p><strong>Privacy reminder:</strong><br>Do not send private student records, medical details, or sensitive information through public forms. Use official school communication channels when needed.</p></div></div></section></main><section class="disclaimer"><div class="container"><div class="info-dot">i</div><div>NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District. WHS-specific information should be verified with official school or district sources.</div></div></section><footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-brand"><img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator logo"><div><strong>NXT Step<br>Navigator</strong><span>Educate • Equip • Empower</span></div></div></div><div class="footer-col"><h4>Explore</h4><a href="../counselor-compass/">Counselor Compass</a><a href="../whs-counselor-compass/">WHS Counselor Compass</a><a href="../nextstep-how-to/">NextStep How-To</a><a href="../nextstep-tours/">NextStep Tours</a><a href="../resource-library/">Resource Library</a></div><div class="footer-col"><h4>WHS Quick Links</h4><a href="whs-who-to-contact.html">Who to Turn To</a><a href="whs-counselor-assignments.html">Counselor Assignments</a><a href="whs-forms-links.html">Forms & Links</a><a href="whs-important-dates.html">Important Dates</a></div><div class="footer-note"><p><strong style="color:#fff;font-family:Montserrat,sans-serif;">Independent Resource Notice</strong><br>NXT Step Navigator is independent and not an official WHS or School District website.</p></div></div><div class="copyright">© 2026 NXT Step Navigator. All rights reserved.</div></div></footer><div class="toast" id="futureToast"><strong>Page coming next</strong><span>This section is planned and will be created in a future update.</span></div><script src="../js/main.js"></script><script>document.querySelectorAll('.future-link').forEach(function(link){link.addEventListener('click',function(e){e.preventDefault();var t=document.getElementById('futureToast');if(t){t.querySelector('strong').textContent=(link.getAttribute('data-page')||'This page')+' is coming next';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2600)}})});</script></body></html>
+
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav class="nav" id="siteNav">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html" aria-label="NXT Step Navigator Home">
+      <img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator compass logo">
+      <div><strong>NXT Step<br>Navigator</strong><span>Educate • Equip • Empower</span></div>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <div class="nav-links" aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="../counselor-compass/">Counselor Compass</a>
+      <a class="active" href="../whs-counselor-compass/">WHS Counselor Compass</a>
+      <a href="../nextstep-how-to/">NextStep How-To</a>
+      <a href="../nextstep-tours/">NextStep Tours</a>
+      <a href="../resource-library/">Resource Library</a>
+      <a href="../about.html">About</a>
+      <a class="nav-cta" href="../contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="whs-hero">
+  <div class="container whs-hero-grid">
+    <div>
+      <p class="eyebrow">WHS Counselor Compass</p>
+      <h1>Who to Turn To at WHS</h1>
+      <p class="sub">Important campus contacts for common questions and support needs.</p>
+      <p>This page is separate from the Student Support Centers page. Use it when you need a campus coordinator, records/transcripts, testing, ESOL, ESE/SBT, athletics, activities, wellness, safety, media center, or other school-service contact.</p>
+      <div class="btn-row">
+        <a class="btn" href="#people">Find a Contact →</a>
+        <a class="btn secondary" href="whs-counselor-assignments.html">Need Your Counselor?</a>
+      </div>
+    </div>
+    <div class="whs-visual" aria-hidden="true">
+      <img class="whs-campus-logo" src="../assets/logos/whs-campus-contact-logo.png" alt="">
+    </div>
+  </div>
+</header>
+<main id="main-content">
+  <section class="section white" id="people">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Need Information?</p>
+        <h2>WHS campus personnel directory</h2>
+        <p>These contacts were organized from the “Who to Turn To at WHS” document. Confirm time-sensitive or official details with the school.</p>
+      </div>
+      <div class="group-heading"><h2>Academics & Programs</h2><p>Use this section for campus personnel outside of the main support-center counselor assignments.</p></div><div class="people-grid"><article class="person-card"><div class="role-dot">VD</div><div><h3>Academy Coordinator</h3><p>Ms. Vanessa Douglass</p><a href="mailto:Vanessa.Douglass@palmbeachschools.org">Vanessa.Douglass@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">MD</div><div><h3>AICE Coordinator</h3><p>Ms. Mierka Drucker</p><a href="mailto:Mierka.Drucker@palmbeachschools.org">Mierka.Drucker@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">LT</div><div><h3>AP Coordinator</h3><p>Mr. Lee Tanton</p><a href="mailto:Lee.Tanton@palmbeachschools.org">Lee.Tanton@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">CG</div><div><h3>ESOL Counselor</h3><p>Ms. Claudia Gallardo</p><a href="mailto:Claudia.Gallardo@palmbeachschools.org">Claudia.Gallardo@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">CC</div><div><h3>ESOL Coordinator</h3><p>Mr. Christian Carrera</p><a href="mailto:Christian.Carrera@palmbeachschools.org">Christian.Carrera@palmbeachschools.org</a></div></article></div><div class="group-heading"><h2>Student Services & Support</h2><p>Use this section for campus personnel outside of the main support-center counselor assignments.</p></div><div class="people-grid"><article class="person-card"><div class="role-dot">KP</div><div><h3>Assessment Coordinator</h3><p>Mrs. Kathleen Pereira</p><a href="mailto:Kathleen.Pereira@palmbeachschools.org">Kathleen.Pereira@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">ME</div><div><h3>ESE & SBT Coordinator</h3><p>Ms. Michelle Eichner</p><a href="mailto:Michelle.Eichner@palmbeachschools.org">Michelle.Eichner@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">DW</div><div><h3>ESE & SBT Coordinator</h3><p>Ms. Debra Wilson</p><a href="mailto:Debra.Wilson@palmbeachschools.org">Debra.Wilson@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">NS</div><div><h3>ESE Office Secretary</h3><p>Ms. Nancy Safford</p><a href="mailto:Nancy.Safford@palmbeachschools.org">Nancy.Safford@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">DF</div><div><h3>School Counseling Director</h3><p>Mrs. Danielle Fairclough</p><a href="mailto:Danielle.Fairclough@palmbeachschools.org">Danielle.Fairclough@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">LG</div><div><h3>Records & Transcripts</h3><p>Ms. Lori Gelobter</p><a href="mailto:Lori.Gelobter@palmbeachschools.org">Lori.Gelobter@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">TBA</div><div><h3>Psychologist</h3><p>TBA</p><span style="color:var(--gray);font-size:13px;">To be announced</span></div></article></div><div class="group-heading"><h2>Campus Life & Activities</h2><p>Use this section for campus personnel outside of the main support-center counselor assignments.</p></div><div class="people-grid"><article class="person-card"><div class="role-dot">GF</div><div><h3>Activities Director</h3><p>Ms. Gemma Ford</p><a href="mailto:Gemma.Ford@palmbeachschools.org">Gemma.Ford@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">RC</div><div><h3>Athletic Director</h3><p>Mr. Robert Callovi</p><a href="mailto:Robert.Callovi@palmbeachschools.org">Robert.Callovi@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">CC</div><div><h3>Assistant Athletic Director</h3><p>Mr. Christian Carrera</p><a href="mailto:Christian.Carrera@palmbeachschools.org">Christian.Carrera@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">MM</div><div><h3>Assistant Athletic Director</h3><p>Ms. Malissa McAuley</p><a href="mailto:Malissa.Mcauley@palmbeachschools.org">Malissa.Mcauley@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">BB</div><div><h3>Student Government</h3><p>Mr. Brockton Boretti</p><a href="mailto:Brockton.Boretti@palmbeachschools.org">Brockton.Boretti@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">GF</div><div><h3>Student Government</h3><p>Ms. Gemma Ford</p><a href="mailto:Gemma.Ford@palmbeachschools.org">Gemma.Ford@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">JA</div><div><h3>PTSA</h3><p>Ms. Jennifer Abreu</p><a href="mailto:Jenniferabreu311@gmail.com">Jenniferabreu311@gmail.com</a></div></article><article class="person-card"><div class="role-dot">CB</div><div><h3>SAC Chair</h3><p>Mrs. Crystal Barletta</p><a href="mailto:Crystal.Barletta@palmbeachschools.org">Crystal.Barletta@palmbeachschools.org</a></div></article></div><div class="group-heading"><h2>Operations & School Services</h2><p>Use this section for campus personnel outside of the main support-center counselor assignments.</p></div><div class="people-grid"><article class="person-card"><div class="role-dot">DB</div><div><h3>Bookkeeper</h3><p>Mrs. Dottie Billi</p><a href="mailto:Dottie.Billi@palmbeachschools.org">Dottie.Billi@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">SB</div><div><h3>Clinic / Nurse</h3><p>Mrs. Safina Bansee, RN</p><a href="mailto:Sbansee@hcdpc.org">Sbansee@hcdpc.org</a></div></article><article class="person-card"><div class="role-dot">MW</div><div><h3>Food Service Manager</h3><p>Ms. Monica Walker</p><a href="mailto:Monica.Walker@palmbeachschools.org">Monica.Walker@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">SC</div><div><h3>Media Specialist</h3><p>Dr. Sara Curry</p><a href="mailto:Sara.Curry@palmbeachschools.org">Sara.Curry@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">CA</div><div><h3>Media Clerk</h3><p>Mrs. Cindy Arkenbout</p><a href="mailto:Cindy.Arkenbout@palmbeachschools.org">Cindy.Arkenbout@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">EM</div><div><h3>Parking Services</h3><p>Dr. Eric Moore</p><a href="mailto:Eric.Moore@palmbeachschools.org">Eric.Moore@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">YT</div><div><h3>Parking Services</h3><p>Ms. Yvette Thomas</p><a href="mailto:Yvette.Thomas@palmbeachschools.org">Yvette.Thomas@palmbeachschools.org</a></div></article></div><div class="group-heading"><h2>Safety & Wellness</h2><p>Use this section for campus personnel outside of the main support-center counselor assignments.</p></div><div class="people-grid"><article class="person-card"><div class="role-dot">CH</div><div><h3>School Resource Officer</h3><p>Officer Charles Hennessey</p><a href="mailto:Charles.Hennessey@palmbeachschools.org">Charles.Hennessey@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">JV</div><div><h3>School Resource Officer</h3><p>Officer Juan Vital</p><a href="mailto:Juan.Vital@palmbeachschools.org">Juan.Vital@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">AJ</div><div><h3>Wolverine Wellness Center: Mental Health Coordinator 9–10</h3><p>Ms. Allyson Joseph</p><a href="mailto:Allyson.Joseph@palmbeachschools.org">Allyson.Joseph@palmbeachschools.org</a></div></article><article class="person-card"><div class="role-dot">CR</div><div><h3>Wolverine Wellness Center: D.A.T.A. Counselor & LMHC</h3><p>Ms. Christina Ranieri</p><a href="mailto:Christina.Ranieri@palmbeachschools.org">Christina.Ranieri@palmbeachschools.org</a></div></article></div>
+      <div class="whs-warning">
+        <div class="notice-icon">i</div>
+        <p><strong>Privacy reminder:</strong><br>Do not send private student records, medical details, or sensitive information through public forms. Use official school communication channels when needed.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="disclaimer">
+  <div class="container">
+    <div class="info-dot">i</div>
+    <div>NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District. WHS-specific information should be verified with official school or district sources.</div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator logo"><div><strong>NXT Step<br>Navigator</strong><span>Educate • Equip • Empower</span></div></div></div>
+      <div class="footer-col"><h4>Explore</h4><a href="../counselor-compass/">Counselor Compass</a><a href="../whs-counselor-compass/">WHS Counselor Compass</a><a href="../nextstep-how-to/">NextStep How-To</a><a href="../nextstep-tours/">NextStep Tours</a><a href="../resource-library/">Resource Library</a></div>
+      <div class="footer-col"><h4>WHS Quick Links</h4><a href="whs-who-to-contact.html">Who to Turn To</a><a href="whs-counselor-assignments.html">Counselor Assignments</a><a href="whs-forms-links.html">Forms & Links</a><a href="whs-important-dates.html">Important Dates</a></div>
+      <div class="footer-note"><p><strong style="color:#fff;font-family:Montserrat,sans-serif;">Independent Resource Notice</strong><br>NXT Step Navigator is independent and not an official WHS or School District website.</p></div>
+    </div>
+    <div class="copyright">© 2026 NXT Step Navigator. All rights reserved.</div>
+  </div>
+</footer>
+<div class="toast" id="futureToast" role="status" aria-live="polite"><strong>Page coming next</strong><span>This section is planned and will be created in a future update.</span></div>
+<script src="../js/main.js"></script>
+<script>
+document.querySelectorAll('.future-link').forEach(function(link){
+  link.addEventListener('click', function(event){
+    event.preventDefault();
+    var toast = document.getElementById('futureToast');
+    if(toast){
+      var label = link.getAttribute('data-page') || 'This page';
+      toast.querySelector('strong').textContent = label + ' is coming next';
+      toast.classList.add('show');
+      setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+    }
+  });
+});
+</script>
+</body>
+</html>

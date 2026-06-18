@@ -1,5 +1,341 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>WHS Counselor Compass — NXT Step Navigator</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WHS Counselor Compass — NXT Step Navigator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+
 <style>
-.whs-hero{position:relative;background:radial-gradient(circle at 84% 18%,rgba(21,101,192,.18),transparent 32%),linear-gradient(120deg,#fff 0%,#fff 48%,#EEF4FC 100%);border-bottom:1px solid var(--border);overflow:hidden}.whs-hero:before{content:"";position:absolute;right:-145px;top:20px;width:430px;height:430px;background:url('../assets/logos/nxt-step-navigator-badge.png') center/contain no-repeat;opacity:.04}.whs-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;min-height:430px;padding:58px 0}.whs-hero h1{font-size:clamp(38px,5.1vw,60px);letter-spacing:-.04em;margin:0 0 12px;font-weight:800}.whs-hero .sub{font-family:Montserrat,sans-serif;color:var(--blue);font-weight:800;font-size:19px;margin:0 0 14px}.whs-hero p{color:#334155;max-width:670px;margin:0 0 22px}.whs-visual{position:relative;min-height:300px;display:flex;align-items:center;justify-content:center}.whs-counseling-logo{width:min(365px,88%);display:block;margin:0 auto;filter:drop-shadow(0 18px 34px rgba(10,30,61,.16))}.whs-card-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}.whs-card{position:relative;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:22px 18px;min-height:232px;display:flex;flex-direction:column;align-items:center;text-align:center;transition:.18s}.whs-card:hover{transform:translateY(-4px);box-shadow:0 16px 42px rgba(10,30,61,.12);border-color:#C8D8ED}.whs-card:before{content:"";position:absolute;left:18px;right:18px;top:0;height:4px;background:var(--blue);border-radius:0 0 6px 6px;opacity:0;transition:.18s}.whs-card:hover:before{opacity:1}.whs-card .icon-badge{width:58px;height:58px;margin-bottom:14px}.whs-card h3{font-size:16.5px;margin:0 0 8px}.whs-card p{color:var(--gray);font-size:13px;line-height:1.52;margin:0 0 14px}.whs-card .card-link{margin-top:auto}.whs-warning{background:#FFF7ED;border:1px solid #FED7AA;border-radius:18px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;margin-top:22px;color:#7C2D12}.whs-warning strong{font-family:Montserrat,sans-serif;color:#7C2D12}.whs-warning p{margin:0;font-size:13.5px;line-height:1.55}.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.center-section{background:#fff;border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:24px;box-shadow:var(--shadow)}.center-header{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:18px}.center-header h2{font-size:30px;margin:0 0 6px}.center-header p{margin:0;color:var(--gray);font-weight:700}.admin-assistant{background:var(--light);border:1px solid var(--border);border-radius:12px;padding:14px;min-width:250px}.admin-assistant span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--gray);font-weight:800}.admin-assistant strong{display:block;font-family:Montserrat,sans-serif;color:var(--navy);margin:3px 0}.admin-assistant a{display:block;color:var(--blue);font-size:13px;word-break:break-word}.center-desc{color:var(--gray);margin:0 0 20px}.staff-card{display:flex;gap:14px;border:1px solid var(--border);border-radius:14px;background:#fff;padding:18px;box-shadow:0 1px 5px rgba(0,0,0,.04)}.avatar{width:54px;height:54px;border-radius:50%;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-weight:800;flex:0 0 54px}.badge{display:inline-block;background:#E3F2FD;color:var(--blue);font-size:12px;font-family:Montserrat,sans-serif;font-weight:800;border-radius:999px;padding:3px 10px;margin-bottom:8px}.staff-info h3{font-size:18px;margin:0 0 3px}.staff-info p{margin:0 0 7px;color:var(--gray);font-weight:600}.email{color:var(--blue);font-size:14px;word-break:break-word}.card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn.small{font-size:12px;padding:8px 12px;border-radius:7px}.btn.ghost{background:#fff;color:var(--blue);box-shadow:none}.support-team{background:var(--light);border-radius:12px;padding:18px;margin-top:18px}.support-team h3{margin:0 0 12px;font-size:18px}.support-team ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.support-team li{background:white;border:1px solid var(--border);border-radius:10px;padding:12px}.support-team strong{display:block;color:var(--navy)}.support-team span{display:block;color:var(--gray);font-size:13px}.support-team a{display:block;color:var(--blue);font-size:13px;word-break:break-word}.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.quick-card{border:1px solid var(--border);border-radius:12px;padding:18px;background:#fff;box-shadow:var(--shadow)}.quick-card strong{font-family:Montserrat,sans-serif;color:var(--navy);display:block}.quick-card span{font-size:13px;color:var(--gray)}.people-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.person-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:flex-start}.person-card h3{font-size:16px;margin:0 0 4px}.person-card p{margin:0 0 6px;color:#334155;font-weight:700;font-size:13.5px}.person-card a{color:var(--blue);font-size:13px;word-break:break-word}.role-dot{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-weight:800;flex:0 0 auto}.group-heading{margin:34px 0 14px;border-left:5px solid var(--blue);padding-left:12px}.group-heading h2{margin:0;font-size:24px}.group-heading p{margin:3px 0 0;color:var(--gray)}@media(max-width:1040px){.whs-card-grid{grid-template-columns:repeat(3,1fr)}.people-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:820px){.whs-hero-grid{grid-template-columns:1fr;min-height:auto;padding:44px 0}.whs-visual{min-height:230px}.whs-counseling-logo{width:min(300px,86%)}.whs-card-grid,.contact-grid,.quick-grid{grid-template-columns:repeat(2,1fr)}.center-header{flex-direction:column}.support-team ul{grid-template-columns:1fr}}@media(max-width:560px){.whs-card-grid,.contact-grid,.quick-grid,.people-grid{grid-template-columns:1fr}.whs-card{min-height:auto}.staff-card{flex-direction:column}}
+.whs-hero{
+  position:relative;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(21,101,192,.18), transparent 32%),
+    linear-gradient(120deg, #FFFFFF 0%, #FFFFFF 48%, #EEF4FC 100%);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.whs-hero:before{
+  content:"";
+  position:absolute;
+  right:-145px;
+  top:20px;
+  width:430px;
+  height:430px;
+  background:url('../assets/logos/nxt-step-navigator-badge.png') center/contain no-repeat;
+  opacity:.04;
+  filter:grayscale(.1);
+}
+.whs-hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:36px;
+  align-items:center;
+  min-height:430px;
+  padding:58px 0;
+}
+.whs-hero h1{
+  font-size:clamp(38px,5.1vw,60px);
+  letter-spacing:-.04em;
+  margin:0 0 12px;
+  font-weight:800;
+}
+.whs-hero .sub{
+  font-family:Montserrat,sans-serif;
+  color:var(--blue);
+  font-weight:800;
+  font-size:19px;
+  margin:0 0 14px;
+}
+.whs-hero p{color:#334155;max-width:670px;margin:0 0 22px}
+.whs-visual{position:relative;min-height:300px;display:flex;align-items:center;justify-content:center}
+.whs-counseling-logo,
+.whs-campus-logo{
+  display:block;
+  margin:0 auto;
+  filter:drop-shadow(0 18px 34px rgba(10,30,61,.16));
+}
+.whs-counseling-logo{width:min(365px,88%)}
+.whs-campus-logo{width:min(250px,76%); opacity:.96}
+.whs-card-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.whs-card{
+  position:relative;background:#fff;border:1px solid var(--border);border-radius:16px;
+  box-shadow:var(--shadow);padding:22px 18px;min-height:232px;display:flex;flex-direction:column;
+  align-items:center;text-align:center;transition:.18s;
+}
+.whs-card:hover{transform:translateY(-4px);box-shadow:0 16px 42px rgba(10,30,61,.12);border-color:#C8D8ED}
+.whs-card:before{content:"";position:absolute;left:18px;right:18px;top:0;height:4px;background:var(--blue);border-radius:0 0 6px 6px;opacity:0;transition:.18s}
+.whs-card:hover:before{opacity:1}
+.whs-card .icon-badge{width:58px;height:58px;margin-bottom:14px}
+.whs-card h3{font-size:16.5px;margin:0 0 8px}
+.whs-card p{color:var(--gray);font-size:13px;line-height:1.52;margin:0 0 14px}
+.whs-card .card-link{margin-top:auto}
+.whs-warning{
+  background:#FFF7ED;border:1px solid #FED7AA;border-radius:18px;padding:18px 20px;
+  display:flex;gap:14px;align-items:flex-start;margin-top:22px;color:#7C2D12;
+}
+.whs-warning strong{font-family:Montserrat,sans-serif;color:#7C2D12}
+.whs-warning p{margin:0;font-size:13.5px;line-height:1.55}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.center-section{background:#fff;border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:24px;box-shadow:var(--shadow)}
+.center-header{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:18px}
+.center-header h2{font-size:30px;margin:0 0 6px}
+.center-header p{margin:0;color:var(--gray);font-weight:700}
+.admin-assistant{background:var(--light);border:1px solid var(--border);border-radius:12px;padding:14px;min-width:270px}
+.admin-assistant span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--gray);font-weight:800}
+.admin-assistant strong{display:block;font-family:Montserrat,sans-serif;color:var(--navy);margin:3px 0}
+.admin-assistant a{display:block;color:var(--blue);font-size:13px;word-break:break-word}
+.center-desc{color:var(--gray);margin:0 0 20px}
+.staff-card{
+  display:flex;gap:18px;border:1px solid var(--border);border-radius:16px;background:#fff;
+  padding:20px 20px 22px;box-shadow:0 1px 5px rgba(0,0,0,.04);align-items:flex-start;
+}
+.avatar{
+  width:78px;height:78px;border-radius:50%;background:var(--navy);color:white;
+  display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;
+  font-weight:800;font-size:30px;flex:0 0 78px;margin-top:56px;
+}
+.staff-info{flex:1;min-width:0}
+.alpha-range{
+  display:inline-block;
+  background:#DDE9F7;
+  color:#2B66C4;
+  font-size:20px;
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  border-radius:999px;
+  padding:10px 22px;
+  margin-bottom:14px;
+  line-height:1;
+}
+.staff-info h3{
+  font-size:29px;
+  line-height:1.08;
+  margin:0 0 10px;
+}
+.staff-info p{
+  margin:0 0 8px;
+  color:var(--gray);
+  font-weight:600;
+  font-size:19px;
+  line-height:1.15;
+}
+.email{color:var(--blue);font-size:15px;word-break:break-word}
+.card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.btn.small{font-size:12px;padding:8px 12px;border-radius:7px}
+.btn.ghost{background:#fff;color:var(--blue);box-shadow:none}
+.support-team{background:var(--light);border-radius:12px;padding:18px;margin-top:18px}
+.support-team h3{margin:0 0 12px;font-size:18px}.support-team ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.support-team li{background:white;border:1px solid var(--border);border-radius:10px;padding:12px}.support-team strong{display:block;color:var(--navy)}
+.support-team span{display:block;color:var(--gray);font-size:13px}.support-team a{display:block;color:var(--blue);font-size:13px;word-break:break-word}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.quick-card{border:1px solid var(--border);border-radius:12px;padding:18px;background:#fff;box-shadow:var(--shadow)}
+.quick-card strong{font-family:Montserrat,sans-serif;color:var(--navy);display:block}.quick-card span{font-size:13px;color:var(--gray)}
+.people-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.person-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:flex-start}
+.person-card h3{font-size:16px;margin:0 0 4px}.person-card p{margin:0 0 6px;color:#334155;font-weight:700;font-size:13.5px}.person-card a{color:var(--blue);font-size:13px;word-break:break-word}
+.role-dot{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-weight:800;flex:0 0 auto}
+.group-heading{margin:34px 0 14px;border-left:5px solid var(--blue);padding-left:12px}
+.group-heading h2{margin:0;font-size:24px}.group-heading p{margin:3px 0 0;color:var(--gray)}
+@media (max-width:1040px){
+  .whs-card-grid{grid-template-columns:repeat(3,1fr)}
+  .people-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:820px){
+  .whs-hero-grid{grid-template-columns:1fr;min-height:auto;padding:44px 0}
+  .whs-visual{min-height:230px}
+  .whs-counseling-logo{width:min(300px,86%)}
+  .whs-campus-logo{width:min(220px,70%)}
+  .whs-card-grid,.contact-grid,.quick-grid{grid-template-columns:repeat(2,1fr)}
+  .center-header{flex-direction:column}
+  .support-team ul{grid-template-columns:1fr}
+  .staff-card{padding:18px}
+  .avatar{width:70px;height:70px;flex-basis:70px;font-size:27px;margin-top:50px}
+  .alpha-range{font-size:18px;padding:9px 18px}
+  .staff-info h3{font-size:25px}
+  .staff-info p{font-size:17px}
+}
+@media (max-width:560px){
+  .whs-card-grid,.contact-grid,.quick-grid,.people-grid{grid-template-columns:1fr}
+  .whs-card{min-height:auto}
+  .staff-card{flex-direction:column;gap:14px}
+  .avatar{margin-top:0}
+}
 </style>
-</head><body><a class="skip-link" href="#main-content">Skip to main content</a><nav class="nav" id="siteNav"><div class="container nav-inner"><a class="brand" href="../index.html"><img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator compass logo"><div><strong>NXT Step<br>Navigator</strong><span>Educate • Equip • Empower</span></div></a><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button><div class="nav-links"><a href="../index.html">Home</a><a href="../counselor-compass/">Counselor Compass</a><a class="active" href="../whs-counselor-compass/">WHS Counselor Compass</a><a href="../nextstep-how-to/">NextStep How-To</a><a href="../nextstep-tours/">NextStep Tours</a><a href="../resource-library/">Resource Library</a><a href="../about.html">About</a><a class="nav-cta" href="../contact.html">Contact</a></div></div></nav><header class="whs-hero"><div class="container whs-hero-grid"><div><p class="eyebrow">Wellington-Specific Resource</p><h1>WHS Counselor Compass</h1><p class="sub">A NXT Step Navigator hub for WHS counseling support.</p><p>Find WHS-specific support center information, counselor assignments, important personnel, forms, school reminders, and planning resources. This section keeps local WHS information separate from general guidance.</p><div class="btn-row"><a class="btn" href="whs-counselor-assignments.html">Find My Counselor →</a><a class="btn secondary" href="whs-who-to-contact.html">Who to Turn To</a></div></div><div class="whs-visual" aria-hidden="true"><img class="whs-counseling-logo" src="../assets/logos/whs-school-counseling-hands.png" alt=""></div></div></header><main id="main-content"><section class="section white"><div class="container"><div class="section-title"><p class="eyebrow">Wellington High School — Start Here</p><h2>Where would you like to begin?</h2><p>Use these cards to find the correct WHS-specific page. Pages marked “coming next” are planned and will be added as the site grows.</p></div><div class="whs-card-grid"><a class="whs-card future-link" href="whs-start-here.html" data-page="WHS Start Here"><span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.6 6.4L21 11l-6.4 2.6L12 20l-2.6-6.4L3 11l6.4-2.6L12 2z"/><path d="M12 8v4l3 2"/></svg></span><h3>WHS Start Here</h3><p>Begin with important information for WHS students and families.</p><span class="future-pill">Page coming next</span><span class="card-link">Explore <span>→</span></span></a><a class="whs-card " href="whs-who-to-contact.html" data-page="WHS Who to Turn To"><span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1z"/></svg></span><h3>WHS Who to Turn To</h3><p>Find important personnel, coordinators, services, and campus contacts.</p><span class="card-link">Explore <span>→</span></span></a><a class="whs-card " href="whs-counselor-assignments.html" data-page="WHS Counselor Assignments"><span class="icon-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><h3>WHS Counselor Assignments</h3><p>Find your support center, counselor, administrator, and grade team.</p><span class="card-link">Explore <span>→</span></span></a><a class="whs-card future-link" href="whs-course-selection.html" data-page="WHS Course Selection"><span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M8 3h8l1 3h3v15H4V6h3l1-3z"/><path d="M8 11h8M8 15h6M9 6h6"/></svg></span><h3>WHS Course Selection</h3><p>Explore courses and plan your schedule with WHS reminders.</p><span class="future-pill">Page coming next</span><span class="card-link">Explore <span>→</span></span></a><a class="whs-card future-link" href="whs-graduation-information.html" data-page="WHS Graduation Information"><span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 12v4c2.6 2 7.4 2 10 0v-4"/><path d="M21 9v6"/></svg></span><h3>WHS Graduation Information</h3><p>Review requirements, credits, and important senior reminders.</p><span class="future-pill">Page coming next</span><span class="card-link">Explore <span>→</span></span></a><a class="whs-card future-link" href="whs-testing-information.html" data-page="WHS Testing Information"><span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7V3z"/><path d="M14 3v5h5"/><path d="M9 12h6M9 16h6"/></svg></span><h3>WHS Testing Information</h3><p>SAT, ACT, AP, AICE, EOC, and state testing details.</p><span class="future-pill">Page coming next</span><span class="card-link">Explore <span>→</span></span></a><a class="whs-card future-link" href="whs-college-career.html" data-page="WHS College & Career"><span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 20V9l6-4 6 4v11"/><path d="M9 20v-7h6v7"/></svg></span><h3>WHS College & Career</h3><p>Resources for college, career planning, scholarships, and applications.</p><span class="future-pill">Page coming next</span><span class="card-link">Explore <span>→</span></span></a><a class="whs-card future-link" href="whs-dual-enrollment-early-admission.html" data-page="WHS Dual Enrollment / Early Admission"><span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 12v4c2.6 2 7.4 2 10 0v-4"/><path d="M21 9v6"/></svg></span><h3>WHS Dual Enrollment / Early Admission</h3><p>College credit, dual enrollment, and early admission planning.</p><span class="future-pill">Page coming next</span><span class="card-link">Explore <span>→</span></span></a><a class="whs-card future-link" href="whs-important-dates.html" data-page="WHS Important Dates"><span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M7 3v3M17 3v3M4 8h16M5 5h14v16H5z"/><path d="M8 12h3M13 12h3M8 16h3M13 16h3"/></svg></span><h3>WHS Important Dates</h3><p>Keep track of dates and deadlines. Verify with official sources.</p><span class="future-pill">Page coming next</span><span class="card-link">Explore <span>→</span></span></a><a class="whs-card future-link" href="whs-forms-links.html" data-page="WHS Forms & Links"><span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M3 6h7l2 2h9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"/></svg></span><h3>WHS Forms & Links</h3><p>Quick access to important blank forms and helpful links.</p><span class="future-pill">Page coming next</span><span class="card-link">Explore <span>→</span></span></a></div><div class="whs-warning"><div class="notice-icon">!</div><p><strong>Official-source reminder:</strong><br>Dates, staff assignments, requirements, and procedures can change. Always verify time-sensitive or official information with Wellington High School or the School District.</p></div></div></section><section class="section light"><div class="container"><div class="start-panel"><div class="choice-card"><p class="eyebrow">Need a counselor?</p><h3>Use the support center page.</h3><p>Choose this when you need your counselor, grade-level support center, alpha assignment, administrator, dean, or support-center assistant.</p><a class="btn" href="whs-counselor-assignments.html">Open Counselor Assignments →</a></div><div class="choice-card"><p class="eyebrow">Need another campus contact?</p><h3>Use Who to Turn To.</h3><p>Choose this when you need testing, AICE, AP, ESE/SBT, ESOL, records, media center, activities, athletics, wellness, PTSA, or other campus personnel.</p><a class="btn secondary" href="whs-who-to-contact.html">Open Who to Turn To →</a></div></div></div></section></main><section class="disclaimer"><div class="container"><div class="info-dot">i</div><div>NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District. WHS-specific information should be verified with official school or district sources.</div></div></section><footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-brand"><img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator logo"><div><strong>NXT Step<br>Navigator</strong><span>Educate • Equip • Empower</span></div></div></div><div class="footer-col"><h4>Explore</h4><a href="../counselor-compass/">Counselor Compass</a><a href="../whs-counselor-compass/">WHS Counselor Compass</a><a href="../nextstep-how-to/">NextStep How-To</a><a href="../nextstep-tours/">NextStep Tours</a><a href="../resource-library/">Resource Library</a></div><div class="footer-col"><h4>WHS Quick Links</h4><a href="whs-who-to-contact.html">Who to Turn To</a><a href="whs-counselor-assignments.html">Counselor Assignments</a><a href="whs-forms-links.html">Forms & Links</a><a href="whs-important-dates.html">Important Dates</a></div><div class="footer-note"><p><strong style="color:#fff;font-family:Montserrat,sans-serif;">Independent Resource Notice</strong><br>NXT Step Navigator is independent and not an official WHS or School District website.</p></div></div><div class="copyright">© 2026 NXT Step Navigator. All rights reserved.</div></div></footer><div class="toast" id="futureToast"><strong>Page coming next</strong><span>This section is planned and will be created in a future update.</span></div><script src="../js/main.js"></script><script>document.querySelectorAll('.future-link').forEach(function(link){link.addEventListener('click',function(e){e.preventDefault();var t=document.getElementById('futureToast');if(t){t.querySelector('strong').textContent=(link.getAttribute('data-page')||'This page')+' is coming next';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2600)}})});</script></body></html>
+
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav class="nav" id="siteNav">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html" aria-label="NXT Step Navigator Home">
+      <img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator compass logo">
+      <div><strong>NXT Step<br>Navigator</strong><span>Educate • Equip • Empower</span></div>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <div class="nav-links" aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="../counselor-compass/">Counselor Compass</a>
+      <a class="active" href="../whs-counselor-compass/">WHS Counselor Compass</a>
+      <a href="../nextstep-how-to/">NextStep How-To</a>
+      <a href="../nextstep-tours/">NextStep Tours</a>
+      <a href="../resource-library/">Resource Library</a>
+      <a href="../about.html">About</a>
+      <a class="nav-cta" href="../contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="whs-hero">
+  <div class="container whs-hero-grid">
+    <div>
+      <p class="eyebrow">Wellington-Specific Resource</p>
+      <h1>WHS Counselor Compass</h1>
+      <p class="sub">A NXT Step Navigator hub for WHS counseling support.</p>
+      <p>Find WHS-specific support center information, counselor assignments, important personnel, forms, school reminders, and planning resources. This section keeps local WHS information separate from general guidance.</p>
+      <div class="btn-row">
+        <a class="btn" href="whs-counselor-assignments.html">Find My Counselor →</a>
+        <a class="btn secondary" href="whs-who-to-contact.html">Who to Turn To</a>
+      </div>
+    </div>
+    <div class="whs-visual" aria-hidden="true">
+      <img class="whs-counseling-logo" src="../assets/logos/whs-school-counseling-hands.png" alt="">
+    </div>
+  </div>
+</header>
+<main id="main-content">
+  <section class="section white">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Wellington High School — Start Here</p>
+        <h2>Where would you like to begin?</h2>
+        <p>Use these cards to find the correct WHS-specific page. Pages marked “coming next” are planned and will be added as the site grows.</p>
+      </div>
+      <div class="whs-card-grid">
+<a class="whs-card future-link" href="whs-start-here.html" data-page="WHS Start Here">
+  <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.6 6.4L21 11l-6.4 2.6L12 20l-2.6-6.4L3 11l6.4-2.6L12 2z"/><path d="M12 8v4l3 2"/></svg></span>
+  <h3>WHS Start Here</h3>
+  <p>Begin with important information for WHS students and families.</p>
+  <span class="future-pill">Page coming next</span>
+  <span class="card-link">Explore <span>→</span></span>
+</a>
+
+<a class="whs-card " href="whs-who-to-contact.html" data-page="WHS Who to Turn To">
+  <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1z"/></svg></span>
+  <h3>WHS Who to Turn To</h3>
+  <p>Find important personnel, coordinators, services, and campus contacts.</p>
+  
+  <span class="card-link">Explore <span>→</span></span>
+</a>
+
+<a class="whs-card " href="whs-counselor-assignments.html" data-page="WHS Counselor Assignments">
+  <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+  <h3>WHS Counselor Assignments</h3>
+  <p>Find your student support center, counselor, administrator, and grade team.</p>
+  
+  <span class="card-link">Explore <span>→</span></span>
+</a>
+
+<a class="whs-card future-link" href="whs-course-selection.html" data-page="WHS Course Selection">
+  <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l1 3h3v15H4V6h3l1-3z"/><path d="M8 11h8M8 15h6M9 6h6"/></svg></span>
+  <h3>WHS Course Selection</h3>
+  <p>Explore courses and plan your schedule with WHS reminders.</p>
+  <span class="future-pill">Page coming next</span>
+  <span class="card-link">Explore <span>→</span></span>
+</a>
+
+<a class="whs-card future-link" href="whs-graduation-information.html" data-page="WHS Graduation Information">
+  <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 12v4c2.6 2 7.4 2 10 0v-4"/><path d="M21 9v6"/></svg></span>
+  <h3>WHS Graduation Information</h3>
+  <p>Review requirements, credits, and important senior reminders.</p>
+  <span class="future-pill">Page coming next</span>
+  <span class="card-link">Explore <span>→</span></span>
+</a>
+
+<a class="whs-card future-link" href="whs-testing-information.html" data-page="WHS Testing Information">
+  <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7V3z"/><path d="M14 3v5h5"/><path d="M9 12h6M9 16h6"/></svg></span>
+  <h3>WHS Testing Information</h3>
+  <p>SAT, ACT, AP, AICE, EOC, and state testing details.</p>
+  <span class="future-pill">Page coming next</span>
+  <span class="card-link">Explore <span>→</span></span>
+</a>
+
+<a class="whs-card future-link" href="whs-college-career.html" data-page="WHS College & Career">
+  <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M6 20V9l6-4 6 4v11"/><path d="M9 20v-7h6v7"/></svg></span>
+  <h3>WHS College & Career</h3>
+  <p>Resources for college, career planning, scholarships, and applications.</p>
+  <span class="future-pill">Page coming next</span>
+  <span class="card-link">Explore <span>→</span></span>
+</a>
+
+<a class="whs-card future-link" href="whs-dual-enrollment-early-admission.html" data-page="WHS Dual Enrollment / Early Admission">
+  <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 12v4c2.6 2 7.4 2 10 0v-4"/><path d="M21 9v6"/></svg></span>
+  <h3>WHS Dual Enrollment / Early Admission</h3>
+  <p>Learn about college credit, dual enrollment, and early admission planning.</p>
+  <span class="future-pill">Page coming next</span>
+  <span class="card-link">Explore <span>→</span></span>
+</a>
+
+<a class="whs-card future-link" href="whs-important-dates.html" data-page="WHS Important Dates">
+  <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4 8h16M5 5h14v16H5z"/><path d="M8 12h3M13 12h3M8 16h3M13 16h3"/></svg></span>
+  <h3>WHS Important Dates</h3>
+  <p>Keep track of dates and deadlines. Verify with official sources.</p>
+  <span class="future-pill">Page coming next</span>
+  <span class="card-link">Explore <span>→</span></span>
+</a>
+
+<a class="whs-card future-link" href="whs-forms-links.html" data-page="WHS Forms & Links">
+  <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h7l2 2h9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"/></svg></span>
+  <h3>WHS Forms & Links</h3>
+  <p>Quick access to important blank forms and helpful links.</p>
+  <span class="future-pill">Page coming next</span>
+  <span class="card-link">Explore <span>→</span></span>
+</a></div>
+      <div class="whs-warning">
+        <div class="notice-icon">!</div>
+        <p><strong>Official-source reminder:</strong><br>Dates, staff assignments, requirements, and procedures can change. Always verify time-sensitive or official information with Wellington High School or the School District.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="disclaimer">
+  <div class="container">
+    <div class="info-dot">i</div>
+    <div>NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District. WHS-specific information should be verified with official school or district sources.</div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator logo"><div><strong>NXT Step<br>Navigator</strong><span>Educate • Equip • Empower</span></div></div></div>
+      <div class="footer-col"><h4>Explore</h4><a href="../counselor-compass/">Counselor Compass</a><a href="../whs-counselor-compass/">WHS Counselor Compass</a><a href="../nextstep-how-to/">NextStep How-To</a><a href="../nextstep-tours/">NextStep Tours</a><a href="../resource-library/">Resource Library</a></div>
+      <div class="footer-col"><h4>WHS Quick Links</h4><a href="whs-who-to-contact.html">Who to Turn To</a><a href="whs-counselor-assignments.html">Counselor Assignments</a><a href="whs-forms-links.html">Forms & Links</a><a href="whs-important-dates.html">Important Dates</a></div>
+      <div class="footer-note"><p><strong style="color:#fff;font-family:Montserrat,sans-serif;">Independent Resource Notice</strong><br>NXT Step Navigator is independent and not an official WHS or School District website.</p></div>
+    </div>
+    <div class="copyright">© 2026 NXT Step Navigator. All rights reserved.</div>
+  </div>
+</footer>
+<div class="toast" id="futureToast" role="status" aria-live="polite"><strong>Page coming next</strong><span>This section is planned and will be created in a future update.</span></div>
+<script src="../js/main.js"></script>
+<script>
+document.querySelectorAll('.future-link').forEach(function(link){
+  link.addEventListener('click', function(event){
+    event.preventDefault();
+    var toast = document.getElementById('futureToast');
+    if(toast){
+      var label = link.getAttribute('data-page') || 'This page';
+      toast.querySelector('strong').textContent = label + ' is coming next';
+      toast.classList.add('show');
+      setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+    }
+  });
+});
+</script>
+</body>
+</html>
