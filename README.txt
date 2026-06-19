@@ -1,7 +1,8 @@
-NextStep How-To Page
+NextStep Tours Page
 
 Upload these to your GitHub repository root:
-nextstep-how-to/index.html
-documents/nextstep-how-to/.gitkeep
 
-After uploading, update the main homepage link for NextStep How-To if it still says Page coming next.
+nextstep-tours/index.html
+documents/nextstep-tours/.gitkeep
+
+After uploading, update the main homepage link for NextStep Tours if it still says Page coming next.

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextStep Tours — NXT Step Navigator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+/* NextStep Tours page-specific styling */
+.tours-hero{
+  position:relative;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(126,87,194,.16), transparent 30%),
+    radial-gradient(circle at 16% 84%, rgba(21,101,192,.10), transparent 28%),
+    linear-gradient(120deg,#FFFFFF 0%,#FFFFFF 48%,#EEF4FC 100%);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.tours-hero:before{
+  content:"";
+  position:absolute;
+  right:-155px;
+  top:18px;
+  width:455px;
+  height:455px;
+  background:url('../assets/logos/nxt-step-navigator-badge.png') center/contain no-repeat;
+  opacity:.045;
+}
+.tours-hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:36px;
+  align-items:center;
+  min-height:430px;
+  padding:58px 0;
+}
+.tours-hero h1{
+  font-size:clamp(40px,5.3vw,62px);
+  letter-spacing:-.04em;
+  margin:0 0 12px;
+  font-weight:800;
+}
+.tours-hero .sub{
+  font-family:Montserrat,sans-serif;
+  color:var(--blue);
+  font-weight:800;
+  font-size:19px;
+  margin:0 0 14px;
+}
+.tours-hero p{
+  color:#334155;
+  max-width:670px;
+  margin:0 0 22px;
+}
+.tours-visual{
+  position:relative;
+  min-height:300px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.tours-panel{
+  width:min(455px,100%);
+  min-height:300px;
+  background:linear-gradient(145deg,#FFFFFF 0%,#F4F8FD 100%);
+  border:1px solid var(--border);
+  border-radius:30px;
+  box-shadow:var(--shadow-lg);
+  position:relative;
+  overflow:hidden;
+}
+.tours-panel:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(10,30,61,.08),transparent 34%),
+    radial-gradient(circle at 75% 22%,rgba(21,101,192,.14),transparent 30%);
+}
+.tours-skyline{
+  position:absolute;
+  left:28px;
+  right:28px;
+  bottom:74px;
+  height:94px;
+  display:flex;
+  align-items:flex-end;
+  gap:10px;
+}
+.tour-building{
+  flex:1;
+  background:#0A1E3D;
+  border-radius:8px 8px 0 0;
+  opacity:.95;
+  position:relative;
+}
+.tour-building:nth-child(1){height:54px}
+.tour-building:nth-child(2){height:82px;background:#1565C0}
+.tour-building:nth-child(3){height:66px}
+.tour-building:nth-child(4){height:94px;background:#7E57C2}
+.tour-building:nth-child(5){height:60px}
+.tour-building:after{
+  content:"";
+  position:absolute;
+  inset:12px 10px auto 10px;
+  height:8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 18px 0 rgba(255,255,255,.45),0 36px 0 rgba(255,255,255,.35);
+}
+.tours-path{
+  position:absolute;
+  left:-30px;
+  right:-30px;
+  bottom:18px;
+  height:78px;
+  background:linear-gradient(90deg,rgba(21,101,192,.12),rgba(126,87,194,.18));
+  transform:rotate(-4deg);
+}
+.tours-pin{
+  position:absolute;
+  left:44px;
+  top:42px;
+  width:74px;
+  height:74px;
+  background:#fff;
+  border:1px solid #D7E3F2;
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1565C0;
+}
+.tours-pin svg{width:40px;height:40px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tours-card-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:16px;
+}
+.tours-card{
+  position:relative;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  padding:22px 18px;
+  min-height:235px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  transition:.18s;
+}
+.tours-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 42px rgba(10,30,61,.12);
+  border-color:#C8D8ED;
+}
+.tours-card:before{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  top:0;
+  height:4px;
+  background:#7E57C2;
+  border-radius:0 0 6px 6px;
+  opacity:0;
+  transition:.18s;
+}
+.tours-card:hover:before{opacity:1}
+.tours-card .icon-badge{
+  width:58px;
+  height:58px;
+  margin-bottom:14px;
+}
+.tours-card h3{
+  font-size:16.5px;
+  margin:0 0 8px;
+}
+.tours-card p{
+  color:var(--gray);
+  font-size:13px;
+  line-height:1.52;
+  margin:0 0 14px;
+}
+.tours-card .card-link{margin-top:auto}
+.feature-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.feature-panel{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+.feature-panel h3{
+  margin:0 0 10px;
+  font-size:22px;
+}
+.feature-panel p{
+  color:var(--gray);
+  margin:0 0 16px;
+}
+.feature-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:10px;
+}
+.feature-list li{
+  display:flex;
+  gap:10px;
+  color:#334155;
+  font-size:14px;
+}
+.check{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#E3F2FD;
+  color:var(--blue);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  flex:0 0 22px;
+}
+.resource-preview{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:26px;
+  box-shadow:var(--shadow);
+}
+.resource-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.resource-list li{
+  border:1px solid var(--border);
+  background:var(--light);
+  border-radius:12px;
+  padding:14px;
+  font-size:13.5px;
+  color:#334155;
+}
+.resource-list strong{
+  display:block;
+  color:var(--navy);
+  font-family:Montserrat,sans-serif;
+  margin-bottom:2px;
+}
+.notice-panel{
+  background:#EEF4FC;
+  border:1px solid #CFE0F6;
+  border-radius:18px;
+  padding:22px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:16px;
+  align-items:center;
+  box-shadow:var(--shadow);
+}
+.notice-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid #CFE0F6;
+  background:#fff;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  font-size:20px;
+}
+.notice-panel h3{margin:0 0 4px;font-size:18px}
+.notice-panel p{margin:0;color:#475569;font-size:14px}
+@media (max-width:1120px){
+  .tours-card-grid{grid-template-columns:repeat(3,1fr)}
+  .resource-list{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:820px){
+  .tours-hero-grid{grid-template-columns:1fr;min-height:auto;padding:44px 0}
+  .tours-visual{min-height:260px}
+  .tours-panel{min-height:245px}
+  .tours-card-grid{grid-template-columns:repeat(2,1fr)}
+  .feature-grid{grid-template-columns:1fr}
+  .notice-panel{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .tours-card-grid,.resource-list{grid-template-columns:1fr}
+  .tours-card{min-height:auto}
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="nav" id="siteNav">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html" aria-label="NXT Step Navigator Home">
+      <img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator compass logo">
+      <div>
+        <strong>NXT Step<br>Navigator</strong>
+        <span>Educate • Equip • Empower</span>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+
+    <div class="nav-links" aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="../counselor-compass/">Counselor Compass</a>
+      <a href="../whs-counselor-compass/">WHS Counselor Compass</a>
+      <a href="../nextstep-how-to/">NextStep How-To</a>
+      <a class="active" href="../nextstep-tours/">NextStep Tours</a>
+      <a href="../resource-library/">Resource Library</a>
+      <a href="../about.html">About</a>
+      <a class="nav-cta" href="#opportunities">Explore Tours →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="tours-hero">
+  <div class="container tours-hero-grid">
+    <div>
+      <p class="eyebrow">College Tours • Field Trips • Travel Opportunities</p>
+      <h1>NextStep Tours</h1>
+      <p class="sub">Explore opportunities. Expand your future.</p>
+      <p>
+        Find college tours, local field trips, EF Tours, chaperone details, interest forms, and upcoming opportunities for students and families.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="#opportunities">View Opportunities →</a>
+        <a class="btn secondary" href="#interest">Interest Forms</a>
+      </div>
+    </div>
+
+    <div class="tours-visual" aria-hidden="true">
+      <div class="tours-panel">
+        <div class="tours-pin">
+          <svg viewBox="0 0 24 24"><path d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </div>
+        <div class="tours-skyline">
+          <span class="tour-building"></span>
+          <span class="tour-building"></span>
+          <span class="tour-building"></span>
+          <span class="tour-building"></span>
+          <span class="tour-building"></span>
+        </div>
+        <div class="tours-path"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="section white" id="opportunities">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Tour & Trip Hub</p>
+        <h2>Choose what you want to explore.</h2>
+        <p>These sections can become individual pages as details, forms, itineraries, and documents are finalized.</p>
+      </div>
+
+      <div class="tours-card-grid">
+        <a class="tours-card future-link" href="college-tours.html" data-page="College Tours">
+          <span class="icon-badge purple">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M6 20V9l6-4 6 4v11"/><path d="M9 20v-7h6v7"/></svg>
+          </span>
+          <h3>College Tours</h3>
+          <p>Visit campuses and explore college life, academics, admissions, and next steps.</p>
+          <span class="future-pill">Page coming next</span>
+          <span class="card-link">Explore <span>→</span></span>
+        </a>
+
+        <a class="tours-card future-link" href="local-field-trips.html" data-page="Local Field Trips">
+          <span class="icon-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+          </span>
+          <h3>Local Field Trips</h3>
+          <p>Discover learning opportunities close to home, including career and campus visits.</p>
+          <span class="future-pill">Page coming next</span>
+          <span class="card-link">Explore <span>→</span></span>
+        </a>
+
+        <a class="tours-card future-link" href="ef-tours.html" data-page="EF Tours">
+          <span class="icon-badge alt">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg>
+          </span>
+          <h3>EF Tours</h3>
+          <p>Global learning experiences, travel information, and educational trip details.</p>
+          <span class="future-pill">Page coming next</span>
+          <span class="card-link">Explore <span>→</span></span>
+        </a>
+
+        <a class="tours-card future-link" href="upcoming-opportunities.html" data-page="Upcoming Opportunities">
+          <span class="icon-badge gold">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4 8h16M5 5h14v16H5z"/><path d="M8 12h3M13 12h3M8 16h3M13 16h3"/></svg>
+          </span>
+          <h3>Upcoming Opportunities</h3>
+          <p>See what is coming up and how to sign up, RSVP, or express interest.</p>
+          <span class="future-pill">Page coming next</span>
+          <span class="card-link">View Dates <span>→</span></span>
+        </a>
+
+        <a class="tours-card future-link" href="interest-form.html" data-page="Interest Form">
+          <span class="icon-badge green">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l1 3h3v15H4V6h3l1-3z"/><path d="M8 11h8M8 15h6M9 6h6"/></svg>
+          </span>
+          <h3>Interest Form</h3>
+          <p>Let us know you are interested in a future tour, trip, or opportunity.</p>
+          <span class="future-pill">Page coming next</span>
+          <span class="card-link">Open Form <span>→</span></span>
+        </a>
+
+        <a class="tours-card future-link" href="parent-information.html" data-page="Parent Information">
+          <span class="icon-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M3 21a6 6 0 0 1 12 0"/><path d="M14 21a5 5 0 0 1 7 0"/></svg>
+          </span>
+          <h3>Parent Information</h3>
+          <p>Important details for parents and guardians before students participate.</p>
+          <span class="future-pill">Page coming next</span>
+          <span class="card-link">Learn More <span>→</span></span>
+        </a>
+
+        <a class="tours-card future-link" href="chaperone-information.html" data-page="Chaperone Information">
+          <span class="icon-badge alt">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6l7-4z"/><path d="M9 12l2 2 4-5"/></svg>
+          </span>
+          <h3>Chaperone Information</h3>
+          <p>Information for approved chaperones and adults supporting trips.</p>
+          <span class="future-pill">Page coming next</span>
+          <span class="card-link">View Info <span>→</span></span>
+        </a>
+
+        <a class="tours-card future-link" href="trip-faq.html" data-page="Trip FAQ">
+          <span class="icon-badge purple">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 4 2c-.9.6-1.5 1.2-1.5 2.3"/><path d="M12 17h.01"/></svg>
+          </span>
+          <h3>Trip FAQ</h3>
+          <p>Find answers to common questions about participation, cost, forms, and travel.</p>
+          <span class="future-pill">Page coming next</span>
+          <span class="card-link">Read FAQ <span>→</span></span>
+        </a>
+
+        <a class="tours-card future-link" href="trip-disclaimer.html" data-page="Trip Disclaimer">
+          <span class="icon-badge gold">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18H7z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
+          </span>
+          <h3>Trip Disclaimer</h3>
+          <p>Important trip notices, policies, and verification reminders.</p>
+          <span class="future-pill">Page coming next</span>
+          <span class="card-link">Read Notice <span>→</span></span>
+        </a>
+
+        <a class="tours-card future-link" href="photo-gallery.html" data-page="Photo Gallery">
+          <span class="icon-badge green">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v12H4z"/><path d="M8 7l1.5-2h5L16 7"/><circle cx="12" cy="13" r="3"/></svg>
+          </span>
+          <h3>Photo Gallery</h3>
+          <p>Future space for highlights, approved photos, and trip memories.</p>
+          <span class="future-pill">Page coming next</span>
+          <span class="card-link">Coming Soon <span>→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="interest">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Before You Go</p>
+        <h2>Planning and participation reminders</h2>
+        <p>Trip and tour details can change, so this section is designed to keep interest forms, parent details, and participation reminders easy to find.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-panel">
+          <h3>For students and families</h3>
+          <p>Use this area to understand what each opportunity is, who it is for, and what steps may be required.</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span><span>Review eligibility, deadlines, and required forms.</span></li>
+            <li><span class="check">✓</span><span>Use interest forms to receive updates or express interest.</span></li>
+            <li><span class="check">✓</span><span>Confirm official details before making plans or payments.</span></li>
+          </ul>
+        </div>
+
+        <div class="feature-panel">
+          <h3>For trip organizers</h3>
+          <p>This page can later connect to forms, trip packets, approval steps, and document downloads.</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span><span>Add documents to the matching NextStep Tours document folder.</span></li>
+            <li><span class="check">✓</span><span>Link each trip card to its page, form, packet, or flyer.</span></li>
+            <li><span class="check">✓</span><span>Keep disclaimers and parent information visible.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section white" id="documents">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Documents Coming Later</p>
+        <h2>Future tour and trip downloads</h2>
+        <p>As flyers, permission forms, packets, itineraries, and interest forms are added, store them in the matching folder and link them from the appropriate card.</p>
+      </div>
+
+      <div class="resource-preview">
+        <ul class="resource-list">
+          <li><strong>College Tour Flyer</strong> documents/nextstep-tours/college-tour-flyer.pdf</li>
+          <li><strong>Local Field Trip Form</strong> documents/nextstep-tours/local-field-trip-permission-form.pdf</li>
+          <li><strong>EF Tours Information</strong> documents/nextstep-tours/ef-tours-information.pdf</li>
+          <li><strong>Parent Information Packet</strong> documents/nextstep-tours/parent-information-packet.pdf</li>
+          <li><strong>Chaperone Information</strong> documents/nextstep-tours/chaperone-information.pdf</li>
+          <li><strong>Trip Disclaimer</strong> documents/nextstep-tours/trip-disclaimer.pdf</li>
+        </ul>
+      </div>
+
+      <div style="height:22px"></div>
+
+      <div class="notice-panel">
+        <div class="notice-icon">i</div>
+        <div>
+          <h3>Travel. Learn. Grow.</h3>
+          <p>New experiences can help students explore goals, pathways, and possibilities. Always verify trip details, eligibility, costs, and forms with the official trip organizer.</p>
+        </div>
+        <a class="btn" href="../resource-library/">Visit Resource Library →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="disclaimer">
+  <div class="container">
+    <div class="info-dot">i</div>
+    <div>
+      NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator logo">
+          <div>
+            <strong>NXT Step<br>Navigator</strong>
+            <span>Educate • Equip • Empower</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="../counselor-compass/">Counselor Compass</a>
+        <a href="../whs-counselor-compass/">WHS Counselor Compass</a>
+        <a href="../nextstep-how-to/">NextStep How-To</a>
+        <a href="../nextstep-tours/">NextStep Tours</a>
+        <a href="../resource-library/">Resource Library</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Tour Links</h4>
+        <a href="college-tours.html">College Tours</a>
+        <a href="local-field-trips.html">Local Field Trips</a>
+        <a href="ef-tours.html">EF Tours</a>
+        <a href="interest-form.html">Interest Form</a>
+      </div>
+
+      <div class="footer-note">
+        <p><strong style="color:#fff;font-family:Montserrat,sans-serif;">Independent Resource Notice</strong><br>
+        NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District.</p>
+      </div>
+    </div>
+
+    <div class="copyright">© 2026 NXT Step Navigator. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="toast" id="futureToast" role="status" aria-live="polite">
+  <strong>Page coming next</strong>
+  <span>This section is planned and will be created in a future update.</span>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+document.querySelectorAll('.future-link').forEach(function(link){
+  link.addEventListener('click', function(event){
+    event.preventDefault();
+    var toast = document.getElementById('futureToast');
+    if(toast){
+      var label = link.getAttribute('data-page') || 'This page';
+      toast.querySelector('strong').textContent = label + ' is coming next';
+      toast.classList.add('show');
+      setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+    }
+  });
+});
+</script>
+</body>
+</html>
