@@ -1,15 +1,12 @@
-Resource Library Page
+About Page
 
-Upload these to your GitHub repository root:
+Upload this file to the root of your GitHub repository:
 
-resource-library/index.html
+about.html
 
-Also create these placeholder files in GitHub if the folders do not already exist:
+This page uses existing shared files:
+css/style.css
+js/main.js
+assets/logos/nxt-step-navigator-badge.png
 
-documents/resource-library/.gitkeep
-documents/counselor-compass/.gitkeep
-documents/whs-counselor-compass/.gitkeep
-documents/nextstep-how-to/.gitkeep
-documents/nextstep-tours/.gitkeep
-
-After uploading, update the main homepage link for Resource Library if it still says Page coming next.
+The About page is a root-level page, not inside a folder.

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — NXT Step Navigator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+/* About page-specific styling */
+.about-hero{
+  position:relative;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(21,101,192,.14), transparent 32%),
+    radial-gradient(circle at 14% 84%, rgba(0,137,123,.12), transparent 30%),
+    linear-gradient(120deg,#FFFFFF 0%,#FFFFFF 48%,#EEF4FC 100%);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.about-hero:before{
+  content:"";
+  position:absolute;
+  right:-150px;
+  top:10px;
+  width:455px;
+  height:455px;
+  background:url('assets/logos/nxt-step-navigator-badge.png') center/contain no-repeat;
+  opacity:.045;
+}
+.about-hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:36px;
+  align-items:center;
+  min-height:430px;
+  padding:58px 0;
+}
+.about-hero h1{
+  font-size:clamp(40px,5.3vw,62px);
+  letter-spacing:-.04em;
+  margin:0 0 12px;
+  font-weight:800;
+}
+.about-hero .sub{
+  font-family:Montserrat,sans-serif;
+  color:var(--blue);
+  font-weight:800;
+  font-size:19px;
+  margin:0 0 14px;
+}
+.about-hero p{
+  color:#334155;
+  max-width:680px;
+  margin:0 0 22px;
+}
+.about-visual{
+  min-height:300px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.about-panel{
+  width:min(450px,100%);
+  min-height:300px;
+  background:linear-gradient(145deg,#FFFFFF 0%,#F4F8FD 100%);
+  border:1px solid var(--border);
+  border-radius:30px;
+  box-shadow:var(--shadow-lg);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.about-panel:before{
+  content:"";
+  position:absolute;
+  inset:auto -80px -88px -80px;
+  height:170px;
+  background:linear-gradient(90deg,rgba(21,101,192,.10),rgba(0,137,123,.12));
+  transform:rotate(-6deg);
+}
+.about-logo-card{
+  position:relative;
+  z-index:1;
+  width:275px;
+  height:275px;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid #D7E3F2;
+  box-shadow:0 20px 42px rgba(10,30,61,.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.about-logo-card img{
+  width:76%;
+  height:76%;
+  object-fit:contain;
+  filter:drop-shadow(0 10px 22px rgba(10,30,61,.12));
+}
+.mission-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+.mission-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+.mission-card h3{
+  margin:0 0 10px;
+  font-size:23px;
+}
+.mission-card p{
+  margin:0;
+  color:var(--gray);
+}
+.values-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.value-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:var(--shadow);
+}
+.value-icon{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#EEF4FC;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  font-size:20px;
+  margin-bottom:14px;
+}
+.value-card h3{
+  margin:0 0 8px;
+  font-size:19px;
+}
+.value-card p{
+  margin:0;
+  color:var(--gray);
+  font-size:14px;
+}
+.section-map{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:14px;
+}
+.section-map-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px 16px;
+  box-shadow:var(--shadow);
+  text-decoration:none;
+  color:inherit;
+  transition:.18s;
+}
+.section-map-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 34px rgba(10,30,61,.11);
+}
+.section-map-card strong{
+  display:block;
+  font-family:Montserrat,sans-serif;
+  color:var(--navy);
+  font-size:15px;
+  margin-bottom:6px;
+}
+.section-map-card span{
+  color:var(--gray);
+  font-size:12.5px;
+  line-height:1.45;
+}
+.notice-stack{
+  display:grid;
+  gap:16px;
+}
+.notice-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:16px;
+}
+.notice-badge{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+}
+.notice-card h3{
+  margin:0 0 6px;
+  font-size:19px;
+}
+.notice-card p{
+  margin:0;
+  color:var(--gray);
+}
+.contact-panel{
+  background:#EEF4FC;
+  border:1px solid #CFE0F6;
+  border-radius:18px;
+  padding:24px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:18px;
+  align-items:center;
+  box-shadow:var(--shadow);
+}
+.contact-panel h3{
+  margin:0 0 6px;
+  font-size:20px;
+}
+.contact-panel p{
+  margin:0;
+  color:#475569;
+}
+@media (max-width:1120px){
+  .section-map{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:900px){
+  .about-hero-grid{grid-template-columns:1fr;min-height:auto;padding:44px 0}
+  .about-visual{min-height:250px}
+  .mission-grid,.values-grid{grid-template-columns:1fr}
+  .contact-panel{grid-template-columns:1fr}
+}
+@media (max-width:650px){
+  .section-map{grid-template-columns:1fr}
+  .about-logo-card{width:230px;height:230px}
+  .notice-card{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="nav" id="siteNav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="NXT Step Navigator Home">
+      <img src="assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator compass logo">
+      <div>
+        <strong>NXT Step<br>Navigator</strong>
+        <span>Educate • Equip • Empower</span>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+
+    <div class="nav-links" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="counselor-compass/">Counselor Compass</a>
+      <a href="whs-counselor-compass/">WHS Counselor Compass</a>
+      <a href="nextstep-how-to/">NextStep How-To</a>
+      <a href="nextstep-tours/">NextStep Tours</a>
+      <a href="resource-library/">Resource Library</a>
+      <a class="active" href="about.html">About</a>
+      <a class="nav-cta" href="#site-sections">Explore →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="about-hero">
+  <div class="container about-hero-grid">
+    <div>
+      <p class="eyebrow">About This Resource</p>
+      <h1>About NXT Step Navigator</h1>
+      <p class="sub">Educate • Equip • Empower</p>
+      <p>
+        NXT Step Navigator is a student and family resource designed to make school counseling information easier to find, understand, and use. The goal is to organize helpful guidance, step-by-step directions, school-specific information, and downloadable resources in one clean, easy-to-navigate website.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="#mission">Our Purpose →</a>
+        <a class="btn secondary" href="#independent-notice">Important Notice</a>
+      </div>
+    </div>
+
+    <div class="about-visual" aria-hidden="true">
+      <div class="about-panel">
+        <div class="about-logo-card">
+          <img src="assets/logos/nxt-step-navigator-badge.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="section white" id="mission">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Purpose</p>
+        <h2>Built to make next steps clearer.</h2>
+        <p>This site is organized around the information students and families often need when planning for school, graduation, college, career pathways, and important student tasks.</p>
+      </div>
+
+      <div class="mission-grid">
+        <div class="mission-card">
+          <h3>Mission</h3>
+          <p>
+            To provide clear, organized, and practical information that helps students and families understand important school counseling topics and take meaningful next steps.
+          </p>
+        </div>
+
+        <div class="mission-card">
+          <h3>Vision</h3>
+          <p>
+            To create a simple, modern, and accessible hub where students and families can quickly find guidance, resources, and direction without feeling overwhelmed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">What Guides This Site</p>
+        <h2>Educate. Equip. Empower.</h2>
+        <p>These three ideas shape the structure and purpose of NXT Step Navigator.</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">E</div>
+          <h3>Educate</h3>
+          <p>Explain important topics in clear language so students and families understand what they are looking at and why it matters.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">E</div>
+          <h3>Equip</h3>
+          <p>Provide guides, checklists, templates, and resource links that help users complete tasks and prepare for next steps.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">E</div>
+          <h3>Empower</h3>
+          <p>Help students and families feel more confident asking questions, making plans, and taking action.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section white" id="site-sections">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Site Sections</p>
+        <h2>How the website is organized</h2>
+        <p>Each section has a different purpose so information stays easier to manage and easier to find.</p>
+      </div>
+
+      <div class="section-map">
+        <a class="section-map-card" href="counselor-compass/">
+          <strong>Counselor Compass</strong>
+          <span>General school counseling guidance and planning information.</span>
+        </a>
+
+        <a class="section-map-card" href="whs-counselor-compass/">
+          <strong>WHS Counselor Compass</strong>
+          <span>WHS-specific contacts, support centers, school links, and local information.</span>
+        </a>
+
+        <a class="section-map-card" href="nextstep-how-to/">
+          <strong>NextStep How-To</strong>
+          <span>Step-by-step tutorials for transcripts, FAFSA, testing, applications, and more.</span>
+        </a>
+
+        <a class="section-map-card" href="nextstep-tours/">
+          <strong>NextStep Tours</strong>
+          <span>College tours, field trips, EF Tours, interest forms, and travel opportunities.</span>
+        </a>
+
+        <a class="section-map-card" href="resource-library/">
+          <strong>Resource Library</strong>
+          <span>Downloadable forms, checklists, templates, guides, and document links.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="independent-notice">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Important Notice</p>
+        <h2>Independent informational resource</h2>
+        <p>This notice should remain visible because the site includes both general information and WHS-specific pages.</p>
+      </div>
+
+      <div class="notice-stack">
+        <div class="notice-card">
+          <div class="notice-badge">i</div>
+          <div>
+            <h3>Not an official school or district website</h3>
+            <p>
+              NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District.
+            </p>
+          </div>
+        </div>
+
+        <div class="notice-card">
+          <div class="notice-badge">✓</div>
+          <div>
+            <h3>Verify official information</h3>
+            <p>
+              School policies, deadlines, forms, testing requirements, and contact details may change. Users should verify time-sensitive or official information with the appropriate school, district, college, testing agency, or organization.
+            </p>
+          </div>
+        </div>
+
+        <div class="notice-card">
+          <div class="notice-badge">→</div>
+          <div>
+            <h3>Use as a starting point</h3>
+            <p>
+              This site is meant to help users get organized, understand options, and know where to begin. It should not replace official guidance from authorized staff, agencies, or institutions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:22px"></div>
+
+      <div class="contact-panel">
+        <div>
+          <h3>Need a specific resource?</h3>
+          <p>Visit the Resource Library or the section that matches the topic you are looking for.</p>
+        </div>
+        <a class="btn" href="resource-library/">Open Resource Library →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="disclaimer">
+  <div class="container">
+    <div class="info-dot">i</div>
+    <div>
+      NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator logo">
+          <div>
+            <strong>NXT Step<br>Navigator</strong>
+            <span>Educate • Equip • Empower</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="counselor-compass/">Counselor Compass</a>
+        <a href="whs-counselor-compass/">WHS Counselor Compass</a>
+        <a href="nextstep-how-to/">NextStep How-To</a>
+        <a href="nextstep-tours/">NextStep Tours</a>
+        <a href="resource-library/">Resource Library</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#mission">Purpose</a>
+        <a href="#site-sections">Site Sections</a>
+        <a href="#independent-notice">Important Notice</a>
+        <a href="index.html">Home</a>
+      </div>
+
+      <div class="footer-note">
+        <p><strong style="color:#fff;font-family:Montserrat,sans-serif;">Independent Resource Notice</strong><br>
+        NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District.</p>
+      </div>
+    </div>
+
+    <div class="copyright">© 2026 NXT Step Navigator. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
