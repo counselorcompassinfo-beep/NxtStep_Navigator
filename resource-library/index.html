@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Library — NXT Step Navigator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+/* Resource Library page-specific styling */
+.library-hero{
+  position:relative;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(21,101,192,.14), transparent 32%),
+    radial-gradient(circle at 14% 86%, rgba(0,137,123,.11), transparent 28%),
+    linear-gradient(120deg,#FFFFFF 0%,#FFFFFF 48%,#EEF4FC 100%);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.library-hero:before{
+  content:"";
+  position:absolute;
+  right:-150px;
+  top:10px;
+  width:455px;
+  height:455px;
+  background:url('../assets/logos/nxt-step-navigator-badge.png') center/contain no-repeat;
+  opacity:.045;
+}
+.library-hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:36px;
+  align-items:center;
+  min-height:430px;
+  padding:58px 0;
+}
+.library-hero h1{
+  font-size:clamp(40px,5.3vw,62px);
+  letter-spacing:-.04em;
+  margin:0 0 12px;
+  font-weight:800;
+}
+.library-hero .sub{
+  font-family:Montserrat,sans-serif;
+  color:var(--blue);
+  font-weight:800;
+  font-size:19px;
+  margin:0 0 14px;
+}
+.library-hero p{
+  color:#334155;
+  max-width:670px;
+  margin:0 0 22px;
+}
+.library-visual{
+  min-height:300px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.library-panel{
+  width:min(450px,100%);
+  min-height:300px;
+  background:linear-gradient(145deg,#FFFFFF 0%,#F4F8FD 100%);
+  border:1px solid var(--border);
+  border-radius:30px;
+  box-shadow:var(--shadow-lg);
+  position:relative;
+  overflow:hidden;
+  padding:34px;
+}
+.library-panel:before{
+  content:"";
+  position:absolute;
+  left:-80px;
+  right:-80px;
+  bottom:-88px;
+  height:170px;
+  background:linear-gradient(90deg,rgba(21,101,192,.10),rgba(0,137,123,.12));
+  transform:rotate(-6deg);
+}
+.folder-stack{
+  position:relative;
+  z-index:1;
+  display:grid;
+  gap:14px;
+}
+.folder-card{
+  background:#fff;
+  border:1px solid #D7E3F2;
+  border-radius:16px;
+  padding:15px 16px;
+  box-shadow:0 12px 24px rgba(10,30,61,.08);
+  display:grid;
+  grid-template-columns:42px 1fr auto;
+  gap:12px;
+  align-items:center;
+}
+.folder-icon{
+  width:42px;
+  height:34px;
+  border-radius:8px;
+  background:#1565C0;
+  position:relative;
+}
+.folder-icon:before{
+  content:"";
+  position:absolute;
+  left:4px;
+  top:-6px;
+  width:20px;
+  height:10px;
+  border-radius:5px 5px 0 0;
+  background:#1565C0;
+}
+.folder-card:nth-child(2) .folder-icon,.folder-card:nth-child(2) .folder-icon:before{background:#00897B}
+.folder-card:nth-child(3) .folder-icon,.folder-card:nth-child(3) .folder-icon:before{background:#7E57C2}
+.folder-card:nth-child(4) .folder-icon,.folder-card:nth-child(4) .folder-icon:before{background:#F9A825}
+.folder-card strong{
+  font-family:Montserrat,sans-serif;
+  color:var(--navy);
+  font-size:15px;
+}
+.folder-card span{
+  color:var(--gray);
+  font-size:12.5px;
+}
+.folder-count{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:#EEF4FC;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  font-size:13px;
+}
+.quick-library-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:14px;
+}
+.quick-library-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:18px 15px;
+  box-shadow:var(--shadow);
+  text-align:center;
+  transition:.18s;
+}
+.quick-library-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 34px rgba(10,30,61,.11);
+}
+.quick-library-card strong{
+  display:block;
+  font-family:Montserrat,sans-serif;
+  color:var(--navy);
+  font-size:15px;
+  margin-bottom:5px;
+}
+.quick-library-card span{
+  color:var(--gray);
+  font-size:12.5px;
+}
+.library-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.library-section-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.library-section-head{
+  padding:22px 22px 18px;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,#fff,#F8FBFF);
+}
+.library-section-head .icon-badge{
+  width:52px;
+  height:52px;
+  margin-bottom:12px;
+}
+.library-section-head h3{
+  margin:0 0 7px;
+  font-size:21px;
+}
+.library-section-head p{
+  margin:0;
+  color:var(--gray);
+  font-size:13.5px;
+  line-height:1.45;
+}
+.resource-links{
+  list-style:none;
+  margin:0;
+  padding:10px;
+  display:grid;
+  gap:8px;
+}
+.resource-links li a,
+.resource-links li .empty-link{
+  display:block;
+  border:1px solid transparent;
+  border-radius:12px;
+  padding:13px 12px;
+  text-decoration:none;
+  color:#334155;
+  font-size:13.5px;
+  background:#fff;
+}
+.resource-links li a:hover{
+  border-color:#D8E3F1;
+  background:#F8FBFF;
+}
+.resource-links strong{
+  display:block;
+  font-family:Montserrat,sans-serif;
+  color:var(--navy);
+  margin-bottom:2px;
+}
+.resource-links span{
+  color:var(--gray);
+  font-size:12px;
+}
+.empty-link{
+  background:var(--light) !important;
+}
+.folder-path{
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:10px;
+  background:#EEF4FC;
+  color:#334155;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+  font-size:12px;
+  overflow-wrap:anywhere;
+}
+.admin-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.admin-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:var(--shadow);
+}
+.admin-number{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  margin-bottom:14px;
+}
+.admin-card h3{
+  margin:0 0 8px;
+  font-size:19px;
+}
+.admin-card p{
+  margin:0;
+  color:var(--gray);
+}
+.notice-panel{
+  background:#EEF4FC;
+  border:1px solid #CFE0F6;
+  border-radius:18px;
+  padding:22px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:16px;
+  align-items:center;
+  box-shadow:var(--shadow);
+}
+.notice-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid #CFE0F6;
+  background:#fff;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Montserrat,sans-serif;
+  font-weight:800;
+  font-size:20px;
+}
+.notice-panel h3{margin:0 0 4px;font-size:18px}
+.notice-panel p{margin:0;color:#475569;font-size:14px}
+@media (max-width:1120px){
+  .quick-library-grid{grid-template-columns:repeat(3,1fr)}
+  .library-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .library-hero-grid{grid-template-columns:1fr;min-height:auto;padding:44px 0}
+  .library-visual{min-height:260px}
+  .admin-grid{grid-template-columns:1fr}
+  .notice-panel{grid-template-columns:1fr}
+}
+@media (max-width:650px){
+  .quick-library-grid,.library-grid{grid-template-columns:1fr}
+  .library-panel{padding:22px}
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="nav" id="siteNav">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html" aria-label="NXT Step Navigator Home">
+      <img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator compass logo">
+      <div>
+        <strong>NXT Step<br>Navigator</strong>
+        <span>Educate • Equip • Empower</span>
+      </div>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+
+    <div class="nav-links" aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="../counselor-compass/">Counselor Compass</a>
+      <a href="../whs-counselor-compass/">WHS Counselor Compass</a>
+      <a href="../nextstep-how-to/">NextStep How-To</a>
+      <a href="../nextstep-tours/">NextStep Tours</a>
+      <a class="active" href="../resource-library/">Resource Library</a>
+      <a href="../about.html">About</a>
+      <a class="nav-cta" href="#library">Open Library →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="library-hero">
+  <div class="container library-hero-grid">
+    <div>
+      <p class="eyebrow">Documents • Forms • Checklists • Templates</p>
+      <h1>Resource Library</h1>
+      <p class="sub">One place for helpful downloads and important links.</p>
+      <p>
+        Use the Resource Library to organize PDFs, forms, templates, checklists, flyers, and other downloadable resources connected to each NXT Step Navigator section.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="#library">Browse Resources →</a>
+        <a class="btn secondary" href="#admin">How to Add Files</a>
+      </div>
+    </div>
+
+    <div class="library-visual" aria-hidden="true">
+      <div class="library-panel">
+        <div class="folder-stack">
+          <div class="folder-card">
+            <div class="folder-icon"></div>
+            <div><strong>WHS Counselor Compass</strong><br><span>School-specific files</span></div>
+            <div class="folder-count">PDF</div>
+          </div>
+          <div class="folder-card">
+            <div class="folder-icon"></div>
+            <div><strong>NextStep How-To</strong><br><span>Guides and templates</span></div>
+            <div class="folder-count">DOC</div>
+          </div>
+          <div class="folder-card">
+            <div class="folder-icon"></div>
+            <div><strong>NextStep Tours</strong><br><span>Flyers and trip packets</span></div>
+            <div class="folder-count">TRIP</div>
+          </div>
+          <div class="folder-card">
+            <div class="folder-icon"></div>
+            <div><strong>Resource Library</strong><br><span>General downloads</span></div>
+            <div class="folder-count">ALL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section white">
+  <div class="container">
+    <div class="quick-library-grid">
+      <a class="quick-library-card" href="#whs-resources"><strong>WHS Files</strong><span>School-specific documents</span></a>
+      <a class="quick-library-card" href="#howto-resources"><strong>How-To Files</strong><span>Templates and guides</span></a>
+      <a class="quick-library-card" href="#tour-resources"><strong>Tour Files</strong><span>Trip forms and flyers</span></a>
+      <a class="quick-library-card" href="#general-resources"><strong>General Files</strong><span>Shared resources</span></a>
+      <a class="quick-library-card" href="#admin"><strong>Add Files</strong><span>GitHub upload steps</span></a>
+    </div>
+  </div>
+</section>
+
+<main id="main-content">
+  <section class="section light" id="library">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Browse Library</p>
+        <h2>Resource categories</h2>
+        <p>These cards are ready for documents as you add them. Each file should be uploaded to the matching folder under the main documents folder.</p>
+      </div>
+
+      <div class="library-grid">
+        <div class="library-section-card" id="whs-resources">
+          <div class="library-section-head">
+            <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-7h6v7"/><path d="M8 9h2M14 9h2"/></svg></span>
+            <h3>WHS Counselor Compass</h3>
+            <p>WHS-specific documents, forms, support center information, and school resources.</p>
+            <div class="folder-path">documents/whs-counselor-compass/</div>
+          </div>
+          <ul class="resource-links">
+            <li><a href="../documents/whs-counselor-compass/whs-student-support-centers.pdf" target="_blank"><strong>WHS Student Support Centers</strong><span>PDF link placeholder</span></a></li>
+            <li><span class="empty-link"><strong>WHS Important Dates</strong><span>Upload PDF later</span></span></li>
+            <li><span class="empty-link"><strong>WHS Forms & Links</strong><span>Upload documents later</span></span></li>
+          </ul>
+        </div>
+
+        <div class="library-section-card" id="howto-resources">
+          <div class="library-section-head">
+            <span class="icon-badge green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18H7z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span>
+            <h3>NextStep How-To</h3>
+            <p>Step-by-step worksheets, student task templates, planning pages, and checklists.</p>
+            <div class="folder-path">documents/nextstep-how-to/</div>
+          </div>
+          <ul class="resource-links">
+            <li><span class="empty-link"><strong>Transcript Request Checklist</strong><span>Upload PDF later</span></span></li>
+            <li><span class="empty-link"><strong>Common App Planning Worksheet</strong><span>Upload PDF later</span></span></li>
+            <li><span class="empty-link"><strong>Recommendation Request Template</strong><span>Upload PDF later</span></span></li>
+          </ul>
+        </div>
+
+        <div class="library-section-card" id="tour-resources">
+          <div class="library-section-head">
+            <span class="icon-badge purple"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <h3>NextStep Tours</h3>
+            <p>College tour flyers, trip packets, permission forms, parent information, and chaperone details.</p>
+            <div class="folder-path">documents/nextstep-tours/</div>
+          </div>
+          <ul class="resource-links">
+            <li><span class="empty-link"><strong>College Tour Flyer</strong><span>Upload PDF later</span></span></li>
+            <li><span class="empty-link"><strong>Parent Information Packet</strong><span>Upload PDF later</span></span></li>
+            <li><span class="empty-link"><strong>Trip Disclaimer</strong><span>Upload PDF later</span></span></li>
+          </ul>
+        </div>
+
+        <div class="library-section-card">
+          <div class="library-section-head">
+            <span class="icon-badge alt"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h9a4 4 0 0 1 4 4v10H9a4 4 0 0 0-4 4V5z"/><path d="M9 9h5M9 13h6"/></svg></span>
+            <h3>Counselor Compass</h3>
+            <p>General counseling, college, graduation, testing, and planning resources.</p>
+            <div class="folder-path">documents/counselor-compass/</div>
+          </div>
+          <ul class="resource-links">
+            <li><span class="empty-link"><strong>Graduation Planning Checklist</strong><span>Upload PDF later</span></span></li>
+            <li><span class="empty-link"><strong>College Planning Basics</strong><span>Upload PDF later</span></span></li>
+            <li><span class="empty-link"><strong>Testing Overview</strong><span>Upload PDF later</span></span></li>
+          </ul>
+        </div>
+
+        <div class="library-section-card" id="general-resources">
+          <div class="library-section-head">
+            <span class="icon-badge gold"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v13H4z"/><path d="M4 7l2-4h12l2 4"/><path d="M9 12h6"/></svg></span>
+            <h3>General Resource Library</h3>
+            <p>Shared files that do not belong to only one section of the website.</p>
+            <div class="folder-path">documents/resource-library/</div>
+          </div>
+          <ul class="resource-links">
+            <li><span class="empty-link"><strong>General Resource Index</strong><span>Upload PDF later</span></span></li>
+            <li><span class="empty-link"><strong>Student Planning Sheet</strong><span>Upload PDF later</span></span></li>
+            <li><span class="empty-link"><strong>Family Resource List</strong><span>Upload PDF later</span></span></li>
+          </ul>
+        </div>
+
+        <div class="library-section-card">
+          <div class="library-section-head">
+            <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><path d="M8 3L5 6M16 3l3 3"/></svg></span>
+            <h3>Recently Added</h3>
+            <p>Use this section later to highlight the newest forms, flyers, and updated files.</p>
+            <div class="folder-path">Update links as documents are added</div>
+          </div>
+          <ul class="resource-links">
+            <li><span class="empty-link"><strong>Newest PDF</strong><span>Add link later</span></span></li>
+            <li><span class="empty-link"><strong>Updated Form</strong><span>Add link later</span></span></li>
+            <li><span class="empty-link"><strong>Featured Resource</strong><span>Add link later</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section white" id="admin">
+    <div class="container">
+      <div class="section-title">
+        <p class="eyebrow">Admin Notes</p>
+        <h2>How to add files to the library</h2>
+        <p>Keep all files organized by section. Upload PDFs and documents into the matching folder, then update the page link.</p>
+      </div>
+
+      <div class="admin-grid">
+        <div class="admin-card">
+          <div class="admin-number">1</div>
+          <h3>Upload the file</h3>
+          <p>Place the PDF or document in the correct folder inside the main documents folder.</p>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-number">2</div>
+          <h3>Copy the path</h3>
+          <p>Use the matching relative path, such as ../documents/nextstep-how-to/file-name.pdf.</p>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-number">3</div>
+          <h3>Update the link</h3>
+          <p>Replace the placeholder text or empty resource card with a working document link.</p>
+        </div>
+      </div>
+
+      <div style="height:22px"></div>
+
+      <div class="notice-panel">
+        <div class="notice-icon">i</div>
+        <div>
+          <h3>GitHub folder reminder</h3>
+          <p>GitHub does not keep empty folders. To create a folder before uploading PDFs, create a placeholder file named .gitkeep inside that folder.</p>
+        </div>
+        <a class="btn" href="#library">Back to Library →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="disclaimer">
+  <div class="container">
+    <div class="info-dot">i</div>
+    <div>
+      NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="../assets/logos/nxt-step-navigator-badge.png" alt="NXT Step Navigator logo">
+          <div>
+            <strong>NXT Step<br>Navigator</strong>
+            <span>Educate • Equip • Empower</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="../counselor-compass/">Counselor Compass</a>
+        <a href="../whs-counselor-compass/">WHS Counselor Compass</a>
+        <a href="../nextstep-how-to/">NextStep How-To</a>
+        <a href="../nextstep-tours/">NextStep Tours</a>
+        <a href="../resource-library/">Resource Library</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Document Folders</h4>
+        <a href="#whs-resources">WHS Files</a>
+        <a href="#howto-resources">How-To Files</a>
+        <a href="#tour-resources">Tour Files</a>
+        <a href="#general-resources">General Files</a>
+      </div>
+
+      <div class="footer-note">
+        <p><strong style="color:#fff;font-family:Montserrat,sans-serif;">Independent Resource Notice</strong><br>
+        NXT Step Navigator is an independent informational resource and is not affiliated with, endorsed by, or officially connected to Wellington High School or the School District.</p>
+      </div>
+    </div>
+
+    <div class="copyright">© 2026 NXT Step Navigator. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
